@@ -1,21 +1,27 @@
-require 'nokogiri'
-
 module Cofidin
   class Comprobante
-    def to_xml
-      namespaces = {
-        'xmlns:cfdi' => 'http://www.sat.gob.mx/cfd/3',
-        'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-        'xsi:schemaLocation' => 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd'
-      }
-
-      builder = Nokogiri::XML::Builder.new do |xml|
-        xml['cfdi'].Comprobante(namespaces) do
-          # xml.tenderlove
-        end
-      end
-
-      builder.to_xml
-    end
+    @version
+    @serie
+    @folio
+    @fecha
+    @sello
+    @forma_de_pago
+    @no_certificado
+    @certificado
+    @condiciones_de_pago
+    @sub_total
+    @descuento
+    @motivo_descuento
+    @tipo_cambio
+    @moneda
+    @total
+    @tipo_de_comprobante
+    @metodo_de_pago
+    @lugar_expedicion
+    @num_cta_pago
+    @folio_fiscal_orig
+    @serie_folio_fiscal_orig
+    @fecha_folio_fiscal_orig
+    @monto_folio_fiscal_orig
   end
 end
