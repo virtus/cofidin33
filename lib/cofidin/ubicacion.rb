@@ -25,5 +25,18 @@ module Cofidin
         codigoPostal: codigo_postal
       }
     end
+
+    def atributos=(params)
+      self.calle = params[:calle]
+      self.no_exterior = params[:no_exterior]
+      self.no_interior = params[:no_interior]
+      self.colonia = params[:colonia]
+      self.localidad = params[:localidad]
+      self.referencia = params[:referencia]
+      self.municipio = params[:municipio]
+      self.estado = params[:estado]
+      self.pais = params[:pais]
+      self.codigo_postal = params[:codigo_postal]
+    end
   end
 end

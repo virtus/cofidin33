@@ -2,6 +2,7 @@ require 'test_helper'
 
 class SeralizerTest < Minitest::Test
   def test_that_it_generates_xml
+    skip
     comprobante = Cofidin::Comprobante.new
     serializer = Cofidin::Serializer.new
 
