@@ -24,8 +24,39 @@ module Cofidin
     attr_accessor :fecha_folio_fiscal_orig
     attr_accessor :monto_folio_fiscal_orig
 
-    def initializer
-      version = '3.2'
+    def initialize
+      self.version = '3.2'
+    end
+
+    def atributos
+      {
+        'xmlns:cfdi' => 'http://www.sat.gob.mx/cfd/3',
+        'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
+        'xsi:schemaLocation' => 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd',
+        version: version,
+        serie: serie,
+        folio: folio,
+        fecha: fecha,
+        sello: sello,
+        formaDePago: forma_de_pago,
+        noCertificado: no_certificado,
+        certificado: certificado,
+        condicionesDePago: condiciones_de_pago,
+        subTotal: sub_total,
+        descuento: descuento,
+        motivoDescuento: motivo_descuento,
+        TipoCambio: tipo_cambio,
+        Moneda: moneda,
+        total: total,
+        tipoDeComprobante: tipo_de_comprobante,
+        metodoDePago: metodo_de_pago,
+        LugarExpedicion: lugar_expedicion,
+        NumCtaPago: num_cta_pago,
+        FolioFiscalOrig: folio_fiscal_orig,
+        SerieFolioFiscalOrig: serie_folio_fiscal_orig,
+        FechaFolioFiscalOrig: fecha_folio_fiscal_orig,
+        MontoFolioFiscalOrig: monto_folio_fiscal_orig
+      }
     end
   end
 end
