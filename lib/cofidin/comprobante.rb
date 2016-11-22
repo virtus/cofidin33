@@ -27,12 +27,14 @@ module Cofidin
     attr_accessor :emisor
     attr_accessor :receptor
     attr_accessor :conceptos
+    attr_accessor :impuestos
 
     def initialize
       self.version = '3.2'
       self.emisor = Cofidin::Emisor.new
       self.receptor = Cofidin::Receptor.new
       self.conceptos = []
+      self.impuestos = Cofidin::Impuestos.new
     end
 
     def atributos
