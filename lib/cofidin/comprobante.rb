@@ -24,8 +24,13 @@ module Cofidin
     attr_accessor :fecha_folio_fiscal_orig
     attr_accessor :monto_folio_fiscal_orig
 
+    attr_accessor :emisor
+    attr_accessor :receptor
+
     def initialize
       self.version = '3.2'
+      self.emisor = Cofidin::Emisor.new
+      self.receptor = Cofidin::Receptor.new
     end
 
     def atributos
