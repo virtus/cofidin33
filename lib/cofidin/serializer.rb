@@ -11,7 +11,11 @@ module Cofidin
           xml.Receptor(comprobante.receptor.atributos) do
             xml.Domicilio(comprobante.receptor.domicilio.atributos)
           end
-          xml.Conceptos
+          xml.Conceptos do
+            comprobante.conceptos.each do |comprobante|
+              xml.Concepto(comprobante)
+            end
+          end
           xml.Impuestos
           xml.Complemento
           xml.Addenda

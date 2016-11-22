@@ -6,5 +6,16 @@ module Cofidin
     attr_accessor :descripcion
     attr_accessor :valor_unitario
     attr_accessor :importe
+
+    def atributos
+      {
+        cantidad: cantidad,
+        unidad: unidad,
+        noIdentificacion: no_identificacion,
+        descripcion: descripcion,
+        valorUnitario: valor_unitario,
+        importe: importe
+      }
+    end
   end
 end

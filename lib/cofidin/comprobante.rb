@@ -26,11 +26,13 @@ module Cofidin
 
     attr_accessor :emisor
     attr_accessor :receptor
+    attr_accessor :conceptos
 
     def initialize
       self.version = '3.2'
       self.emisor = Cofidin::Emisor.new
       self.receptor = Cofidin::Receptor.new
+      self.conceptos = []
     end
 
     def atributos
