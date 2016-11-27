@@ -15,5 +15,10 @@ module Cofidin
         nombre: nombre
       }
     end
+
+    def atributos=(params)
+      self.rfc = params[:rfc]
+      self.nombre = params[:nombre]
+    end
   end
 end
