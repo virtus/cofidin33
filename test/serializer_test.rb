@@ -50,7 +50,7 @@ class SeralizerTest < Minitest::Spec
   it 'crea un nodo Comprobante en la raíz del documento' do
     xml = Cofidin::Serializer.new.serialize @comprobante
     doc = Nokogiri::XML(xml)
-    node = doc.at_css "cfdi|Comprobante"
-    node.name.must_equal 'Comprobante'
+    node = doc.at_css ":root"
+    node.name.must_equal "Comprobante"
   end
 end
