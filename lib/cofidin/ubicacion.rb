@@ -12,18 +12,18 @@ module Cofidin
     attr_accessor :codigo_postal
 
     def atributos
-      {
-        calle: calle,
-        noExterior: no_exterior,
-        noInterior: no_interior,
-        colonia: colonia,
-        localidad: localidad,
-        referencia: referencia,
-        municipio: municipio,
-        estado: estado,
-        pais: pais,
-        codigoPostal: codigo_postal
-      }
+      datos = {}
+      datos[:calle] = calle
+      datos[:noExterior] = no_exterior if no_exterior
+      datos[:noInterior] = no_interior if no_interior
+      datos[:colonia] = colonia if colonia
+      datos[:localidad] = localidad if localidad
+      datos[:referencia] = referencia if referencia
+      datos[:municipio] = municipio
+      datos[:estado] = estado
+      datos[:pais] = pais
+      datos[:codigoPostal] = codigo_postal
+      datos
     end
 
     def atributos=(params)
