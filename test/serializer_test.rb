@@ -39,7 +39,7 @@ class SeralizerTest < Minitest::Spec
     @comprobante.receptor.domicilio.atributos = domicilio_receptor
   end
 
-  it 'creates a document with the required namespaces' do
+  it 'crea un documento con los namespaces requeridos' do
     xml = Cofidin::Serializer.new.serialize @comprobante
     doc = Nokogiri::XML(xml)
     namespaces = doc.namespaces
@@ -47,7 +47,7 @@ class SeralizerTest < Minitest::Spec
     namespaces["xmlns:xsi"].must_equal "http://www.w3.org/2001/XMLSchema-instance"
   end
 
-  it 'creates a Comprobante node' do
+  it 'crea un nodo Comprobante en la raíz del documento' do
     xml = Cofidin::Serializer.new.serialize @comprobante
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante"
