@@ -53,4 +53,32 @@ class SeralizerTest < Minitest::Spec
     node = doc.at_css ":root"
     node.name.must_equal "Comprobante"
   end
+
+  it 'crea un nodo Emisor bajo el nodo Comprobante' do
+    xml = Cofidin::Serializer.new.serialize @comprobante
+    doc = Nokogiri::XML(xml)
+    node = doc.at_css "cfdi|Comprobante > cfdi|Emisor"
+    node.name.must_equal "Emisor"
+  end
+
+  it 'crea un nodo Receptor bajo el nodo Comprobante' do
+    xml = Cofidin::Serializer.new.serialize @comprobante
+    doc = Nokogiri::XML(xml)
+    node = doc.at_css "cfdi|Comprobante > cfdi|Receptor"
+    node.name.must_equal "Receptor"
+  end
+
+  it 'crea un nodo Conceptos bajo el nodo Comprobante' do
+    xml = Cofidin::Serializer.new.serialize @comprobante
+    doc = Nokogiri::XML(xml)
+    node = doc.at_css "cfdi|Comprobante > cfdi|Conceptos"
+    node.name.must_equal "Conceptos"
+  end
+
+  it 'crea un nodo Impuestos bajo el nodo Comprobante' do
+    xml = Cofidin::Serializer.new.serialize @comprobante
+    doc = Nokogiri::XML(xml)
+    node = doc.at_css "cfdi|Comprobante > cfdi|Impuestos"
+    node.name.must_equal "Impuestos"
+  end
 end
