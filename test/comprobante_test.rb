@@ -9,4 +9,9 @@ class ComprobanteTest < Minitest::Test
     domicilio_fiscal = Cofidin::DomicilioFiscal.new
     domicilio_fiscal.atributos = { rfc: 'VCO980224GM7', nombre: 'Virtus Consultores, S.A. de C.V.'}
   end
+
+  def test_cadena_original
+    comprobante = Cofidin::Comprobante.new
+    Cofidin::CadenaOriginal.call(comprobante)
+  end
 end
