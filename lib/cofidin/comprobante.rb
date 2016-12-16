@@ -38,34 +38,34 @@ module Cofidin
     end
 
     def atributos
-      {
-        'xmlns:cfdi' => 'http://www.sat.gob.mx/cfd/3',
-        'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-        'xsi:schemaLocation' => 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd',
-        version: version,
-        serie: serie,
-        folio: folio,
-        fecha: fecha,
-        sello: sello,
-        formaDePago: forma_de_pago,
-        noCertificado: no_certificado,
-        certificado: certificado,
-        condicionesDePago: condiciones_de_pago,
-        subTotal: sub_total,
-        descuento: descuento,
-        motivoDescuento: motivo_descuento,
-        TipoCambio: tipo_cambio,
-        Moneda: moneda,
-        total: total,
-        tipoDeComprobante: tipo_de_comprobante,
-        metodoDePago: metodo_de_pago,
-        LugarExpedicion: lugar_expedicion,
-        NumCtaPago: num_cta_pago,
-        FolioFiscalOrig: folio_fiscal_orig,
-        SerieFolioFiscalOrig: serie_folio_fiscal_orig,
-        FechaFolioFiscalOrig: fecha_folio_fiscal_orig,
-        MontoFolioFiscalOrig: monto_folio_fiscal_orig
-      }
+      datos = {}
+      datos['xmlns:cfdi'] = 'http://www.sat.gob.mx/cfd/3'
+      datos['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
+      datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd'
+      datos[:version] = version
+      datos[:serie] = serie if serie
+      datos[:folio] = folio if folio
+      datos[:fecha] = fecha
+      datos[:sello] = sello
+      datos[:formaDePago] = forma_de_pago
+      datos[:noCertificado] = no_certificado
+      datos[:certificado] = certificado
+      datos[:condicionesDePago] = condiciones_de_pago if condiciones_de_pago
+      datos[:subTotal] = sub_total
+      datos[:descuento] = descuento if descuento
+      datos[:motivoDescuento] = motivo_descuento if motivo_descuento
+      datos[:TipoCambio] = tipo_cambio if tipo_cambio
+      datos[:Moneda] = moneda if moneda
+      datos[:total] = total
+      datos[:tipoDeComprobante] = tipo_de_comprobante
+      datos[:metodoDePago] = metodo_de_pago
+      datos[:LugarExpedicion] = lugar_expedicion
+      datos[:NumCtaPago] = num_cta_pago if num_cta_pago
+      datos[:FolioFiscalOrig] = folio_fiscal_orig if folio_fiscal_orig
+      datos[:SerieFolioFiscalOrig] = serie_folio_fiscal_orig if serie_folio_fiscal_orig
+      datos[:FechaFolioFiscalOrig] = fecha_folio_fiscal_orig if fecha_folio_fiscal_orig
+      datos[:MontoFolioFiscalOrig] = monto_folio_fiscal_orig if monto_folio_fiscal_orig
+      datos
     end
   end
 end
