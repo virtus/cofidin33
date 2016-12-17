@@ -30,7 +30,7 @@ class ComprobanteTest < Minitest::Spec
 
   it 'genera la cadena original' do
     comprobante = Cofidin::Comprobante.new
-    comprobante.atributos = @atributos_comprobante
+    comprobante.atributos_sat = @atributos_comprobante
     cadena = comprobante.cadena_original
     cadena.must_equal '3.2|2016-12-15T17:31:46|ingreso|Pago en una sola exhibición|Contra entrega|10.00|0.00|1.0000|MXN|10.00|03|México|234567|345678|SFFO|2016-12-15T17:31:46|10.00'
   end

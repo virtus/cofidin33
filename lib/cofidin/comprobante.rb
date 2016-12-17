@@ -37,7 +37,7 @@ module Cofidin
       self.impuestos = Cofidin::Impuestos.new
     end
 
-    def atributos
+    def atributos_sat
       datos = {}
       datos['xmlns:cfdi'] = 'http://www.sat.gob.mx/cfd/3'
       datos['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
@@ -68,7 +68,7 @@ module Cofidin
       datos
     end
 
-    def atributos=(params)
+    def atributos_sat=(params)
       self.serie = params[:serie]
       self.folio = params[:folio]
       self.fecha = params[:fecha]
