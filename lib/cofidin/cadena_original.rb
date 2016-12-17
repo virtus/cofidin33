@@ -5,7 +5,8 @@ module Cofidin
       cadenas << comprobante.cadena_original
       cadenas << comprobante.emisor.cadena_original
       cadenas << comprobante.emisor.domicilio_fiscal.cadena_original
-      cadenas.join '|'
+      cadena = cadenas.join '|'
+      '||' + cadena + '||'
     end
   end
 end
