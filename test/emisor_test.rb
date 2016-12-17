@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EmisorTest < Minitest::Spec
   before do
-    emisor = {
+    @atributos_emisor = {
       rfc: 'VCO980224GM7',
       nombre: 'Virtus Consultores, S.A. de C.V.'
     }
@@ -18,7 +18,7 @@ class EmisorTest < Minitest::Spec
     }
 
     @comprobante = Cofidin::Comprobante.new
-    @comprobante.emisor.atributos = emisor
+    @comprobante.emisor.atributos_sat = @atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos = domicilio_emisor
     xml = Cofidin::Serializer.new.serialize @comprobante
     doc = Nokogiri::XML(xml)
@@ -55,6 +55,15 @@ class EmisorTest < Minitest::Spec
 
     it 'tiene un atributo codigoPostal' do
       @domicilio_fiscal.attributes['codigoPostal'].value.must_equal '53050'
+    end
+  end
+
+  describe 'cadena original' do
+    it 'genera' do
+      emisor = Cofidin::Emisor.new
+      emisor.atributos_sat = @atributos_emisor
+      cadena = emisor.cadena_original
+      cadena.must_equal 'VCO980224GM7|Virtus Consultores, S.A. de C.V.'
     end
   end
 end
