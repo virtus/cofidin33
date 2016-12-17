@@ -1,8 +1,11 @@
 module Cofidin
   class CadenaOriginal
     def self.call(comprobante)
-
-      cadena = comprobante.emisor.domicilio.atributos.values.join '|'
+      cadenas = []
+      cadenas << comprobante.cadena_original
+      cadenas << comprobante.emisor.cadena_original
+      cadenas << comprobante.emisor.domicilio_fiscal.cadena_original
+      cadenas.join '|'
     end
   end
 end

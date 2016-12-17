@@ -9,6 +9,7 @@ require "cofidin/impuestos"
 require "cofidin/retencion"
 require "cofidin/traslado"
 require "cofidin/serializer"
+require "cofidin/cadena_original"
 
 module Cofidin
   # Your code goes here...
