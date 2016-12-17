@@ -9,17 +9,17 @@ class EmisorTest < Minitest::Spec
 
     domicilio_emisor = {
       calle: 'Valle de Solís',
-      no_exterior: '33',
+      noExterior: '33',
       colonia: 'El Mirador',
-      codigo_postal: '53050',
       municipio: 'Naucalpan',
       estado: 'México',
-      pais: 'México'
+      pais: 'México',
+      codigoPostal: '53050'
     }
 
     @comprobante = Cofidin::Comprobante.new
     @comprobante.emisor.atributos_sat = @atributos_emisor
-    @comprobante.emisor.domicilio_fiscal.atributos = domicilio_emisor
+    @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
     xml = Cofidin::Serializer.new.serialize @comprobante
     doc = Nokogiri::XML(xml)
     @emisor = doc.at_css "cfdi|Emisor"

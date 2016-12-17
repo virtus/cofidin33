@@ -11,7 +11,7 @@ module Cofidin
     attr_accessor :pais
     attr_accessor :codigo_postal
 
-    def atributos
+    def atributos_sat
       datos = {}
       datos[:calle] = calle
       datos[:noExterior] = no_exterior if no_exterior
@@ -26,17 +26,35 @@ module Cofidin
       datos
     end
 
-    def atributos=(params)
+    def atributos_sat=(params)
       self.calle = params[:calle]
-      self.no_exterior = params[:no_exterior]
-      self.no_interior = params[:no_interior]
+      self.no_exterior = params[:noExterior]
+      self.no_interior = params[:noInterior]
       self.colonia = params[:colonia]
       self.localidad = params[:localidad]
       self.referencia = params[:referencia]
       self.municipio = params[:municipio]
       self.estado = params[:estado]
       self.pais = params[:pais]
-      self.codigo_postal = params[:codigo_postal]
+      self.codigo_postal = params[:codigoPostal]
+    end
+
+    def cadena_original
+      campos_cadena = [
+        :calle,
+        :no_exterior,
+        :no_interior,
+        :colonia,
+        :localidad,
+        :referencia,
+        :municipio,
+        :estado,
+        :pais,
+        :codigo_postal
+      ]
+
+      campos_con_datos = campos_cadena.select { |campo| self.send(campo) }
+      campos_con_datos.map { |campo| self.send(campo) }.join '|'
     end
   end
 end
