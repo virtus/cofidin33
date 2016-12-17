@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SeralizerTest < Minitest::Spec
   before do
-    emisor = {
+    @atributos_emisor = {
       rfc: 'VCO980224GM7',
       nombre: 'Virtus Consultores, S.A. de C.V.'
     }
@@ -33,10 +33,10 @@ class SeralizerTest < Minitest::Spec
     }
 
     @comprobante = Cofidin::Comprobante.new
-    @comprobante.emisor.atributos = emisor
-    @comprobante.emisor.domicilio_fiscal.atributos = domicilio_emisor
+    @comprobante.emisor.atributos_sat = @atributos_emisor
+    @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
     @comprobante.receptor.atributos = receptor
-    @comprobante.receptor.domicilio.atributos = domicilio_receptor
+    @comprobante.receptor.domicilio.atributos_sat = domicilio_receptor
   end
 
   it 'crea un documento con los namespaces requeridos' do

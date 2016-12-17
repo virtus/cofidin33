@@ -4,12 +4,12 @@ module Cofidin
   class Serializer
     def serialize(comprobante)
       builder = Nokogiri::XML::Builder.new do |xml|
-        xml['cfdi'].Comprobante(comprobante.atributos) do
-          xml.Emisor(comprobante.emisor.atributos) do
-            xml.DomicilioFiscal(comprobante.emisor.domicilio_fiscal.atributos)
+        xml['cfdi'].Comprobante(comprobante.atributos_sat) do
+          xml.Emisor(comprobante.emisor.atributos_sat) do
+            xml.DomicilioFiscal(comprobante.emisor.domicilio_fiscal.atributos_sat)
           end
           xml.Receptor(comprobante.receptor.atributos) do
-            xml.Domicilio(comprobante.receptor.domicilio.atributos)
+            xml.Domicilio(comprobante.receptor.domicilio.atributos_sat)
           end
           xml.Conceptos do
             comprobante.conceptos.each do |concepto|
