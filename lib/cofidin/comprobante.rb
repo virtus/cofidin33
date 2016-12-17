@@ -67,5 +67,55 @@ module Cofidin
       datos[:MontoFolioFiscalOrig] = monto_folio_fiscal_orig if monto_folio_fiscal_orig
       datos
     end
+
+    def atributos=(params)
+      self.serie = params[:serie]
+      self.folio = params[:folio]
+      self.fecha = params[:fecha]
+      self.sello = params[:sello]
+      self.forma_de_pago = params[:formaDePago]
+      self.no_certificado = params[:noCertificado]
+      self.certificado = params[:certificado]
+      self.condiciones_de_pago = params[:condicionesDePago]
+      self.sub_total = params[:subTotal]
+      self.descuento = params[:descuento]
+      self.motivo_descuento = params[:motivoDescuento]
+      self.tipo_cambio = params[:TipoCambio]
+      self.moneda = params[:Moneda]
+      self.total = params[:total]
+      self.tipo_de_comprobante = params[:tipoDeComprobante]
+      self.metodo_de_pago = params[:metodoDePago]
+      self.lugar_expedicion = params[:LugarExpedicion]
+      self.num_cta_pago = params[:NumCtaPago]
+      self.folio_fiscal_orig = params[:FolioFiscalOrig]
+      self.serie_folio_fiscal_orig = params[:SerieFolioFiscalOrig]
+      self.fecha_folio_fiscal_orig = params[:FechaFolioFiscalOrig]
+      self.monto_folio_fiscal_orig = params[:MontoFolioFiscalOrig]
+    end
+
+    def cadena_original
+      campos_cadena = [
+        :version,
+        :fecha,
+        :tipo_de_comprobante,
+        :forma_de_pago,
+        :condiciones_de_pago,
+        :sub_total,
+        :descuento,
+        :tipo_cambio,
+        :moneda,
+        :total,
+        :metodo_de_pago,
+        :lugar_expedicion,
+        :num_cta_pago,
+        :folio_fiscal_orig,
+        :serie_folio_fiscal_orig,
+        :fecha_folio_fiscal_orig,
+        :monto_folio_fiscal_orig
+      ]
+
+      campos_con_datos = campos_cadena.select { |campo| self.send(campo) }
+      campos_con_datos.map { |campo| self.send(campo) }.join '|'
+    end
   end
 end
