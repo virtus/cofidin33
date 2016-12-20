@@ -10,6 +10,7 @@ require "cofidin/retencion"
 require "cofidin/traslado"
 require "cofidin/serializer"
 require "cofidin/cadena_original"
+require "cofidin/sello_digital"
 
 module Cofidin
   # Your code goes here...
