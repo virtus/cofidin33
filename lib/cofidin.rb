@@ -11,6 +11,7 @@ require "cofidin/traslado"
 require "cofidin/serializer"
 require "cofidin/cadena_original"
 require "cofidin/sello_digital"
+require "cofidin/aplica_certificado"
 
 module Cofidin
   # Your code goes here...
