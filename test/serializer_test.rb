@@ -35,7 +35,7 @@ class SeralizerTest < Minitest::Spec
     @comprobante = Cofidin::Comprobante.new
     @comprobante.emisor.atributos_sat = @atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
-    @comprobante.receptor.atributos = receptor
+    @comprobante.receptor.atributos_sat = receptor
     @comprobante.receptor.domicilio.atributos_sat = domicilio_receptor
   end
 

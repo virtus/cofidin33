@@ -8,23 +8,23 @@ module Cofidin
           xml.Emisor(comprobante.emisor.atributos_sat) do
             xml.DomicilioFiscal(comprobante.emisor.domicilio_fiscal.atributos_sat)
           end
-          xml.Receptor(comprobante.receptor.atributos) do
+          xml.Receptor(comprobante.receptor.atributos_sat) do
             xml.Domicilio(comprobante.receptor.domicilio.atributos_sat)
           end
           xml.Conceptos do
             comprobante.conceptos.each do |concepto|
-              xml.Concepto(concepto.atributos)
+              xml.Concepto(concepto.atributos_sat)
             end
           end
-          xml.Impuestos(comprobante.impuestos.atributos) do
+          xml.Impuestos(comprobante.impuestos.atributos_sat) do
             xml.Retenciones do
               comprobante.impuestos.retenciones.each do |retencion|
-                xml.Retencion(retencion.atributos)
+                xml.Retencion(retencion.atributos_sat)
               end
             end
             xml.Traslados do
               comprobante.impuestos.traslados.each do |traslado|
-                xml.Traslado(traslado.atributos)
+                xml.Traslado(traslado.atributos_sat)
               end
             end
           end
