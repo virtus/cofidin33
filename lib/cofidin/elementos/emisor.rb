@@ -10,10 +10,10 @@ module Cofidin
     end
 
     def atributos_sat
-      {
-        rfc: rfc,
-        nombre: nombre
-      }
+      datos = {}
+      datos[:rfc] = rfc
+      datos[:nombre] = nombre if nombre
+      datos
     end
 
     def atributos_sat=(params)

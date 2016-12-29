@@ -11,11 +11,27 @@ module Cofidin
       self.traslados = []
     end
 
-    def atributos
-      {
-        totalImpuestosRetenidos: total_impuestos_retenidos,
-        totalImpuestosTrasladados: total_impuestos_trasladados
-      }
+    def atributos_sat
+      datos = {}
+      datos[:totalImpuestosRetenidos] = total_impuestos_retenidos if total_impuestos_retenidos
+      datos[:totalImpuestosTrasladados] = total_impuestos_trasladados if total_impuestos_trasladados
+      datos
     end
+
+    def atributos_sat=(params)
+      self.total_impuestos_retenidos = params[:totalImpuestosRetenidos]
+      self.total_impuestos_trasladados = params[:totalImpuestosTrasladados]
+    end
+
+    def cadena_original
+      campos_cadena = [
+        :total_impuestos_retenidos,
+        :total_impuestos_trasladados
+      ]
+
+      campos_con_datos = campos_cadena.select { |campo| self.send(campo) }
+      campos_con_datos.map { |campo| self.send(campo) }.join '|'
+    end
+
   end
 end
