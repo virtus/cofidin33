@@ -15,6 +15,7 @@ module Cofidin
       datos[:descripcion] = descripcion
       datos[:valorUnitario] = valor_unitario
       datos[:importe] = importe
+      datos
     end
 
     def atributos_sat=(params)
