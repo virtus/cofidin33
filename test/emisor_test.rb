@@ -20,7 +20,7 @@ class EmisorTest < Minitest::Spec
     @comprobante = Cofidin::Comprobante.new
     @comprobante.emisor.atributos_sat = @atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
-    xml = Cofidin::Serializer.new.serialize @comprobante
+    xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     @emisor = doc.at_css "cfdi|Emisor"
     @domicilio_fiscal = doc.at_css 'cfdi|DomicilioFiscal'

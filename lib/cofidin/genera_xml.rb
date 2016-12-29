@@ -1,8 +1,8 @@
 require 'nokogiri'
 
 module Cofidin
-  class Serializer
-    def serialize(comprobante)
+  class GeneraXml
+    def self.call(comprobante)
       builder = Nokogiri::XML::Builder.new do |xml|
         xml['cfdi'].Comprobante(comprobante.atributos_sat) do
           xml.Emisor(comprobante.emisor.atributos_sat) do

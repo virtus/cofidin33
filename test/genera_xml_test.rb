@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class SeralizerTest < Minitest::Spec
+class GeneraXmlTest < Minitest::Spec
   before do
-    @atributos_emisor = {
+    atributos_emisor = {
       rfc: 'VCO980224GM7',
       nombre: 'Virtus Consultores, S.A. de C.V.'
     }
@@ -33,14 +33,14 @@ class SeralizerTest < Minitest::Spec
     }
 
     @comprobante = Cofidin::Comprobante.new
-    @comprobante.emisor.atributos_sat = @atributos_emisor
+    @comprobante.emisor.atributos_sat = atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
     @comprobante.receptor.atributos_sat = receptor
     @comprobante.receptor.domicilio.atributos_sat = domicilio_receptor
   end
 
   it 'crea un documento con los namespaces requeridos' do
-    xml = Cofidin::Serializer.new.serialize @comprobante
+    xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     namespaces = doc.namespaces
     namespaces["xmlns:cfdi"].must_equal "http://www.sat.gob.mx/cfd/3"
@@ -48,35 +48,35 @@ class SeralizerTest < Minitest::Spec
   end
 
   it 'crea un nodo Comprobante en la raíz del documento' do
-    xml = Cofidin::Serializer.new.serialize @comprobante
+    xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     node = doc.at_css ":root"
     node.name.must_equal "Comprobante"
   end
 
   it 'crea un nodo Emisor bajo el nodo Comprobante' do
-    xml = Cofidin::Serializer.new.serialize @comprobante
+    xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante > cfdi|Emisor"
     node.name.must_equal "Emisor"
   end
 
   it 'crea un nodo Receptor bajo el nodo Comprobante' do
-    xml = Cofidin::Serializer.new.serialize @comprobante
+    xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante > cfdi|Receptor"
     node.name.must_equal "Receptor"
   end
 
   it 'crea un nodo Conceptos bajo el nodo Comprobante' do
-    xml = Cofidin::Serializer.new.serialize @comprobante
+    xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante > cfdi|Conceptos"
     node.name.must_equal "Conceptos"
   end
 
   it 'crea un nodo Impuestos bajo el nodo Comprobante' do
-    xml = Cofidin::Serializer.new.serialize @comprobante
+    xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante > cfdi|Impuestos"
     node.name.must_equal "Impuestos"
