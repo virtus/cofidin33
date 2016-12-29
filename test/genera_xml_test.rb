@@ -9,9 +9,9 @@ class GeneraXmlTest < Minitest::Spec
 
     domicilio_emisor = {
       calle: 'Valle de Solís',
-      no_exterior: '33',
+      noExterior: '33',
       colonia: 'El Mirador',
-      codigo_postal: '53050',
+      codigoPostal: '53050',
       municipio: 'Naucalpan',
       estado: 'México',
       pais: 'México'
@@ -24,9 +24,10 @@ class GeneraXmlTest < Minitest::Spec
 
     domicilio_receptor = {
       calle: 'Juan Luis Vives',
-      no_exterior: '2002',
+      noExterior: '2002',
+      noInterior: 'A',
       colonia: 'Los Morales Polanco',
-      codigo_postal: '11510',
+      codigoPostal: '11510',
       municipio: 'Miguel Hidalgo',
       estado: 'Ciudad de México',
       pais: 'México'
