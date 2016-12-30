@@ -51,6 +51,16 @@ class GeneraXmlTest < Minitest::Spec
       importe: '9.12'
     }
 
+    impuestos = {
+      totalImpuestosTrasladados: '12.00'
+    }
+
+    traslado_1 = {
+      impuesto: 'IVA',
+      tasa: '16.00',
+      importe: '12.00'
+    }
+
     @comprobante = Cofidin::Comprobante.new
     @comprobante.emisor.atributos_sat = atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
@@ -62,6 +72,10 @@ class GeneraXmlTest < Minitest::Spec
     concepto = Cofidin::Concepto.new
     concepto.atributos_sat = concepto_2
     @comprobante.conceptos << concepto
+    @comprobante.impuestos.atributos_sat = impuestos
+    traslado = Cofidin::Traslado.new
+    traslado.atributos_sat = traslado_1
+    @comprobante.impuestos.traslados << traslado
   end
 
   it 'crea un documento con los namespaces requeridos' do
@@ -114,5 +128,27 @@ class GeneraXmlTest < Minitest::Spec
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante > cfdi|Impuestos"
     node.name.must_equal "Impuestos"
+  end
+
+  it 'no crea un nodo Retenciones bajo el nodo Impuestos' do
+    xml = Cofidin::GeneraXml.call @comprobante
+    doc = Nokogiri::XML(xml)
+    node = doc.at_css "cfdi|Comprobante > cfdi|Impuestos > cfdi|Retenciones"
+    node.must_be_nil
+  end
+
+  it 'crea un nodo Traslados bajo el nodo Impuestos' do
+    xml = Cofidin::GeneraXml.call @comprobante
+    doc = Nokogiri::XML(xml)
+    node = doc.at_css "cfdi|Comprobante > cfdi|Impuestos > cfdi|Traslados"
+    node.name.must_equal "Traslados"
+  end
+
+  it 'crea un nodo Traslado bajo el nodo Traslados' do
+    xml = Cofidin::GeneraXml.call @comprobante
+    doc = Nokogiri::XML(xml)
+    node_set = doc.css "cfdi|Comprobante > cfdi|Impuestos > cfdi|Traslados > cfdi|Traslado"
+    node_set.length.must_equal 1
+    node_set[0].name.must_equal "Traslado"
   end
 end
