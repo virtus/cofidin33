@@ -4,9 +4,11 @@ module Cofidin
     attr_accessor :nombre
 
     attr_accessor :domicilio_fiscal
+    attr_accessor :regimen_fiscal
 
     def initialize
       self.domicilio_fiscal = Cofidin::Ubicacion.new
+      self.regimen_fiscal = Cofidin::RegimenFiscal.new
     end
 
     def atributos_sat

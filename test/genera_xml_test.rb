@@ -28,6 +28,10 @@ class GeneraXmlTest < Minitest::Spec
       pais: 'México'
     }
 
+    regimen_fiscal = {
+      Regimen: 'Régimen general de ley de personal morales'
+    }
+
     receptor = {
       rfc: 'CRM6702109K6',
       nombre: 'Cruz Roja Mexicana, I.A.P.'
@@ -76,6 +80,7 @@ class GeneraXmlTest < Minitest::Spec
     @comprobante.atributos_sat = atributos_comprobante
     @comprobante.emisor.atributos_sat = atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
+    @comprobante.emisor.regimen_fiscal.atributos_sat = regimen_fiscal
     @comprobante.receptor.atributos_sat = receptor
     @comprobante.receptor.domicilio.atributos_sat = domicilio_receptor
     concepto = Cofidin::Concepto.new
@@ -106,6 +111,21 @@ class GeneraXmlTest < Minitest::Spec
   it 'crea un nodo Emisor bajo el nodo Comprobante' do
     node = @doc.at_css "cfdi|Comprobante > cfdi|Emisor"
     node.name.must_equal "Emisor"
+  end
+
+  it 'crea un nodo DomicilioFiscal bajo el nodo Emisor' do
+    node = @doc.at_css "cfdi|Comprobante > cfdi|Emisor > cfdi|DomicilioFiscal"
+    node.name.must_equal "DomicilioFiscal"
+  end
+
+  it 'crea un nodo RegimenFiscal bajo el nodo Emisor' do
+    node = @doc.at_css "cfdi|Comprobante > cfdi|Emisor > cfdi|RegimenFiscal"
+    node.name.must_equal "RegimenFiscal"
+  end
+
+  it 'crea un nodo Conceptos bajo el nodo Comprobante' do
+    node = @doc.at_css "cfdi|Comprobante > cfdi|Conceptos"
+    node.name.must_equal "Conceptos"
   end
 
   it 'crea un nodo Receptor bajo el nodo Comprobante' do
