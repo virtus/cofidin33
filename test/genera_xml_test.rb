@@ -2,6 +2,17 @@ require 'test_helper'
 
 class GeneraXmlTest < Minitest::Spec
   before do
+    atributos_comprobante = {
+      serie: 'B',
+      folio: '1',
+      formaDePago: 'Pago en una sola exhibición',
+      SubTotal: '10.35',
+      Total: '12.00',
+      TipoDeComprobante: 'ingreso',
+      MetodoDePago: '03',
+      LugarExpedicion: 'Naucalpan, Estado de México'
+    }
+
     atributos_emisor = {
       rfc: 'VCO980224GM7',
       nombre: 'Virtus Consultores, S.A. de C.V.'
@@ -62,6 +73,7 @@ class GeneraXmlTest < Minitest::Spec
     }
 
     @comprobante = Cofidin::Comprobante.new
+    @comprobante.atributos_sat = atributos_comprobante
     @comprobante.emisor.atributos_sat = atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
     @comprobante.receptor.atributos_sat = receptor
