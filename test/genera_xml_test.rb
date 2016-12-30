@@ -33,11 +33,35 @@ class GeneraXmlTest < Minitest::Spec
       pais: 'México'
     }
 
+    concepto_1 = {
+      cantidad: '1',
+      unidad: 'PIEZA',
+      noIdentificacion: 'ABC',
+      descripcion: 'Concepto 1',
+      valorUnitario: '1.23',
+      importe: '1.23'
+    }
+
+    concepto_2 = {
+      cantidad: '2',
+      unidad: 'PIEZA',
+      no_identificacion: 'DEF',
+      descripcion: 'Concepto 2',
+      valor_unitario: '4.56',
+      importe: '9.12'
+    }
+
     @comprobante = Cofidin::Comprobante.new
     @comprobante.emisor.atributos_sat = atributos_emisor
     @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
     @comprobante.receptor.atributos_sat = receptor
     @comprobante.receptor.domicilio.atributos_sat = domicilio_receptor
+    concepto = Cofidin::Concepto.new
+    concepto.atributos_sat = concepto_1
+    @comprobante.conceptos << concepto
+    concepto = Cofidin::Concepto.new
+    concepto.atributos_sat = concepto_2
+    @comprobante.conceptos << concepto
   end
 
   it 'crea un documento con los namespaces requeridos' do
@@ -74,6 +98,15 @@ class GeneraXmlTest < Minitest::Spec
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante > cfdi|Conceptos"
     node.name.must_equal "Conceptos"
+  end
+
+  it 'crea los conceptos baja el nodo Concepto' do
+    xml = Cofidin::GeneraXml.call @comprobante
+    doc = Nokogiri::XML(xml)
+    node_set = doc.css "cfdi|Comprobante > cfdi|Conceptos > cfdi|Concepto"
+    node_set.length.must_equal 2
+    node_set[0].name.must_equal "Concepto"
+    node_set[1].name.must_equal "Concepto"
   end
 
   it 'crea un nodo Impuestos bajo el nodo Comprobante' do
