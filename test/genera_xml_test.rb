@@ -133,4 +133,9 @@ class GeneraXmlTest < Minitest::Spec
     node_set.length.must_equal 1
     node_set[0].name.must_equal "Traslado"
   end
+
+  it 'crea un nodo Complemento bajo el nodo Comprobante' do
+    node = @doc.at_css "cfdi|Comprobante > cfdi|Complemento"
+    node.name.must_equal "Complemento"
+  end
 end
