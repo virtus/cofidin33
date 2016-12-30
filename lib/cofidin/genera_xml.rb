@@ -33,7 +33,6 @@ module Cofidin
             end
           end
           xml.Complemento
-          xml.Addenda
         end
       end
 
