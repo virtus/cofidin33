@@ -36,7 +36,7 @@ module Cofidin
         end
       end
 
-      builder.to_xml
+      builder.to_xml(encoding: 'UTF-8')
     end
   end
 end
