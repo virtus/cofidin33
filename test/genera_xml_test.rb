@@ -63,13 +63,13 @@ class GeneraXmlTest < Minitest::Spec
     }
 
     impuestos = {
-      totalImpuestosTrasladados: '12.00'
+      totalImpuestosTrasladados: '1.65'
     }
 
     traslado_1 = {
       impuesto: 'IVA',
       tasa: '16.00',
-      importe: '12.00'
+      importe: '1.65'
     }
 
     @comprobante = Cofidin::Comprobante.new
