@@ -11,14 +11,14 @@ class ComprobanteTest < Minitest::Spec
       noCertificado: '123456',
       certificado: 'CERTIFICADO',
       condicionesDePago: 'Contra entrega',
-      subTotal: '10.00',
-      descuento: '0.00',
-      motivoDescuento: 'MOTIVO',
+      SubTotal: '10.00',
+      Descuento: '0.00',
+      MotivoDescuento: 'MOTIVO',
       TipoCambio: '1.0000',
       Moneda: 'MXN',
-      total: '10.00',
-      tipoDeComprobante: 'ingreso',
-      metodoDePago: '03',
+      Total: '11.60',
+      TipoDeComprobante: 'ingreso',
+      MetodoDePago: '03',
       LugarExpedicion: 'México',
       NumCtaPago: '234567',
       FolioFiscalOrig: '345678',
@@ -32,6 +32,6 @@ class ComprobanteTest < Minitest::Spec
     comprobante = Cofidin::Comprobante.new
     comprobante.atributos_sat = @atributos_comprobante
     cadena = comprobante.cadena_original
-    cadena.must_equal '3.2|2016-12-15T17:31:46|ingreso|Pago en una sola exhibición|Contra entrega|10.00|0.00|1.0000|MXN|10.00|03|México|234567|345678|SFFO|2016-12-15T17:31:46|10.00'
+    cadena.must_equal '3.2|2016-12-15T17:31:46|ingreso|Pago en una sola exhibición|Contra entrega|10.00|0.00|1.0000|MXN|11.60|03|México|234567|345678|SFFO|2016-12-15T17:31:46|10.00'
   end
 end
