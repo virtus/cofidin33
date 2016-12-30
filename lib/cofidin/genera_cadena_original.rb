@@ -1,5 +1,5 @@
 module Cofidin
-  class CadenaOriginal
+  class GeneraCadenaOriginal
     def self.call(comprobante)
       cadenas = []
       cadenas << comprobante.cadena_original
