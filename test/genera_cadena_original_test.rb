@@ -14,7 +14,7 @@ class GeneraCadenaOriginalTest < Minitest::Spec
                       "|Régimen general de ley de personal morales"\
                       "|CRM6702109K6|Cruz Roja Mexicana, I.A.P."\
                       "|Juan Luis Vives|2002|A|Los Morales Polanco|Miguel Hidalgo|Ciudad de México|México|11510"\
-                      "|1|PIEZA|ABC|Concepto 1|1.23|1.23|2|PIEZA|Concepto 2|9.12"\
+                      "|1|PIEZA|ABC|Concepto 1|1.23|1.23|2|PIEZA|DEF|Concepto 2|4.56|9.12"\
                       "|IVA|16.00|1.65|1.65||"
 
 

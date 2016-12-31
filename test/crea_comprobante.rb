@@ -5,10 +5,11 @@ class CreaComprobante
       folio: '1',
       fecha: '2016-12-15T17:31:46',
       formaDePago: 'Pago en una sola exhibición',
-      SubTotal: '10.35',
-      Total: '12.00',
-      TipoDeComprobante: 'ingreso',
-      MetodoDePago: '03',
+      noCertificado: '12345678901234567890',
+      subTotal: '10.35',
+      total: '12.00',
+      tipoDeComprobante: 'ingreso',
+      metodoDePago: '03',
       LugarExpedicion: 'Naucalpan, Estado de México'
     }
 
@@ -59,9 +60,9 @@ class CreaComprobante
     concepto_2 = {
       cantidad: '2',
       unidad: 'PIEZA',
-      no_identificacion: 'DEF',
+      noIdentificacion: 'DEF',
       descripcion: 'Concepto 2',
-      valor_unitario: '4.56',
+      valorUnitario: '4.56',
       importe: '9.12'
     }
 
