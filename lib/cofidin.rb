@@ -15,6 +15,7 @@ require "cofidin/genera_xml"
 require "cofidin/genera_cadena_original"
 require "cofidin/genera_sello"
 require "cofidin/procesa_certificado"
+require "cofidin/sella_comprobante"
 
 module Cofidin
 end
