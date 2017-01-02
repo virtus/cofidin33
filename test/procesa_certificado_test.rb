@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AplicaCertficadoTest < Minitest::Spec
+class ProcesaCertificadoTest < Minitest::Spec
   before do
     @certificado = "MIIEYTCCA0mgAwIBAgIUMjAwMDEwMDAwMDAyMDAwMDE0MjgwDQYJKoZIhvc"\
                    "NAQEFBQAwggFcMRowGAYDVQQDDBFBLkMuIDIgZGUgcHJ1ZWJhczEvMC0GA1"\
@@ -33,8 +33,8 @@ class AplicaCertficadoTest < Minitest::Spec
   it 'aplica datos del certificado al comprobante' do
     comprobante = Cofidin::Comprobante.new
     certificado = File.read('test/certificados/CSD01_AAA010101AAA.cer')
-    Cofidin::AplicaCertificado.call certificado, comprobante
-    comprobante.no_certificado.must_equal '20001000000200001428'
-    comprobante.certificado.must_equal @certificado
+    serie, cert = Cofidin::ProcesaCertificado.call certificado
+    serie.must_equal '20001000000200001428'
+    cert.must_equal @certificado
   end
 end
