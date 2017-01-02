@@ -13,7 +13,7 @@ require "cofidin/elementos/traslado"
 
 require "cofidin/genera_xml"
 require "cofidin/genera_cadena_original"
-require "cofidin/sello_digital"
+require "cofidin/genera_sello"
 require "cofidin/aplica_certificado"
 
 module Cofidin

@@ -2,7 +2,7 @@ module Cofidin
   require 'openssl'
   require 'base64'
 
-  class SelloDigital
+  class GeneraSello
     def self.call(cadena_original, llave_privada)
       key_pem = OpenSSL::PKey::RSA.new llave_privada
       cadena_firmada = key_pem.sign OpenSSL::Digest::SHA1.new, cadena_original
