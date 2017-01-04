@@ -23,6 +23,11 @@ module Cofidin
       self.nombre = params[:nombre]
     end
 
+    def from_hash(params)
+      @rfc = params[:rfc]
+      @nombre = params[:nombre]
+    end
+
     def cadena_original
       campos_cadena = [
         :rfc,

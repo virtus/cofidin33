@@ -39,6 +39,19 @@ module Cofidin
       self.codigo_postal = params[:codigoPostal]
     end
 
+    def from_hash(params)
+      @calle = params[:calle]
+      @no_exterior = params[:no_exterior]
+      @no_interior = params[:no_interior]
+      @colonia = params[:colonia]
+      @localidad = params[:localidad]
+      @referencia = params[:referencia]
+      @municipio = params[:municipio]
+      @estado = params[:estado]
+      @pais = params[:pais]
+      @codigo_postal = params[:codigo_postal]
+    end
+
     def cadena_original
       campos_cadena = [
         :calle,

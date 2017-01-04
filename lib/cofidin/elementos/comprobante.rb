@@ -93,6 +93,31 @@ module Cofidin
       self.monto_folio_fiscal_orig = params[:MontoFolioFiscalOrig]
     end
 
+    def from_hash(params)
+      @serie = params[:serie]
+      @folio = params[:folio]
+      @fecha = params[:fecha]
+      @sello = params[:sello]
+      @forma_de_pago = params[:forma_de_pago]
+      @no_certificado = params[:no_certificado]
+      @certificado = params[:certificado]
+      @condiciones_de_pago = params[:condiciones_de_pago]
+      @sub_total = params[:sub_total]
+      @descuento = params[:descuento]
+      @motivo_descuento = params[:motivo_descuento]
+      @tipo_cambio = params[:tipo_cambio]
+      @moneda = params[:moneda]
+      @total = params[:total]
+      @tipo_de_comprobante = params[:tipo_de_comprobante]
+      @metodo_de_pago = params[:metodo_de_pago]
+      @lugar_expedicion = params[:lugar_expedicion]
+      @num_cta_pago = params[:num_cta_pago]
+      @folio_fiscal_orig = params[:folio_fiscal_orig]
+      @serie_folio_fiscal_orig = params[:serie_folio_fiscal_orig]
+      @fecha_folio_fiscal_orig = params[:fecha_folio_fiscal_orig]
+      @monto_folio_fiscal_orig = params[:monto_folio_fiscal_orig]
+    end
+
     def cadena_original
       campos_cadena = [
         :version,

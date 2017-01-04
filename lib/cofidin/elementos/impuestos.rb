@@ -23,6 +23,11 @@ module Cofidin
       self.total_impuestos_trasladados = params[:totalImpuestosTrasladados]
     end
 
+    def from_hash(params)
+      @total_impuestos_retenidos = params[:total_impuestos_retenidos]
+      @total_impuestos_trasladados = params[:total_impuestos_trasladados]
+    end
+
     def cadena_original
       campos_cadena = [
         :total_impuestos_retenidos,

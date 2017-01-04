@@ -27,6 +27,15 @@ module Cofidin
       self.importe = params[:importe]
     end
 
+    def from_hash(params)
+      @cantidad = params[:cantidad]
+      @unidad = params[:unidad]
+      @no_identificacion = params[:no_identificacion]
+      @descripcion = params[:descripcion]
+      @valor_unitario = params[:valor_unitario]
+      @importe = params[:importe]
+    end
+
     def cadena_original
       campos_cadena = [
         :cantidad,

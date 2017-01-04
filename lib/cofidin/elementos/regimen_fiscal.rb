@@ -12,6 +12,10 @@ module Cofidin
       self.regimen = params[:Regimen]
     end
 
+    def from_hash(params)
+      @regimen = params[:regimen]
+    end
+
     def cadena_original
       campos_cadena = [
         :regimen

@@ -11,6 +11,7 @@ require "cofidin/elementos/regimen_fiscal"
 require "cofidin/elementos/retencion"
 require "cofidin/elementos/traslado"
 
+require "cofidin/crea_comprobante"
 require "cofidin/genera_xml"
 require "cofidin/genera_cadena_original"
 require "cofidin/genera_sello"

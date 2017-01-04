@@ -18,6 +18,12 @@ module Cofidin
       self.importe = params[:importe]
     end
 
+    def from_hash(params)
+      @impuesto = params[:impuesto]
+      @tasa = params[:tasa]
+      @importe = params[:importe]
+    end
+
     def cadena_original
       campos_cadena = [
         :impuesto,
