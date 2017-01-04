@@ -1,9 +1,9 @@
 require 'test_helper'
-require 'crea_comprobante'
+require 'comprobante_prueba'
 
 class GeneraCadenaOriginalTest < Minitest::Spec
   before do
-    @comprobante = CreaComprobante.call
+    @comprobante = ComprobantePrueba.call
   end
 
   it 'genera la cadena original' do

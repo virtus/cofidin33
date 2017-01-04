@@ -1,4 +1,4 @@
-class CreaComprobante
+class ComprobantePrueba
   def self.call
     params = {
       serie: 'B',

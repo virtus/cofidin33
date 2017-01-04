@@ -1,9 +1,9 @@
 require 'test_helper'
-require 'crea_comprobante'
+require 'comprobante_prueba'
 
 class SellaComprobanteTest < Minitest::Spec
   before do
-    @comprobante = CreaComprobante.call
+    @comprobante = ComprobantePrueba.call
     @comprobante.fecha = nil
     @comprobante.no_certificado = nil
     @comprobante.certificado = nil
