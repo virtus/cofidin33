@@ -1,9 +1,9 @@
 require 'test_helper'
-require 'comprobante_prueba'
+require 'fixtures/comprobante_prueba'
 
 class SellaComprobanteTest < Minitest::Spec
   before do
-    @comprobante = ComprobantePrueba.call
+    @comprobante = Cofidin::CreaComprobante.call(COMPROBANTE_PRUEBA)
     @comprobante.fecha = nil
     @comprobante.no_certificado = nil
     @comprobante.certificado = nil

@@ -1,9 +1,9 @@
 require 'test_helper'
-require 'comprobante_prueba'
+require 'fixtures/comprobante_prueba'
 
 class GeneraXmlTest < Minitest::Spec
   before do
-    @comprobante = ComprobantePrueba.call
+    @comprobante = Cofidin::CreaComprobante.call(COMPROBANTE_PRUEBA)
     xml = Cofidin::GeneraXml.call @comprobante
     @doc = Nokogiri::XML(xml)
   end

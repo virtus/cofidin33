@@ -1,9 +1,9 @@
 require 'test_helper'
-require 'comprobante_prueba'
+require 'fixtures/comprobante_prueba'
 
 class GeneraCadenaOriginalTest < Minitest::Spec
   before do
-    @comprobante = ComprobantePrueba.call
+    @comprobante = Cofidin::CreaComprobante.call(COMPROBANTE_PRUEBA)
   end
 
   it 'genera la cadena original' do
