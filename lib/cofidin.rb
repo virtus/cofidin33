@@ -1,5 +1,4 @@
 require "cofidin/version"
-require "cofidin/elementos/ubicacion"
 require "cofidin/elementos/comprobante"
 require "cofidin/elementos/concepto"
 require "cofidin/elementos/domicilio_fiscal"
