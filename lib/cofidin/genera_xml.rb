@@ -5,10 +5,8 @@ module Cofidin
     def self.call(comprobante)
       builder = Nokogiri::XML::Builder.new do |xml|
         xml['cfdi'].Comprobante(comprobante.atributos_sat) do
-          xml.Emisor(comprobante.emisor.atributos_sat) do
-          end
-          xml.Receptor(comprobante.receptor.atributos_sat) do
-          end
+          xml.Emisor(comprobante.emisor.atributos_sat)
+          xml.Receptor(comprobante.receptor.atributos_sat)
           xml.Conceptos do
             comprobante.conceptos.each do |concepto|
               xml.Concepto(concepto.atributos_sat)
