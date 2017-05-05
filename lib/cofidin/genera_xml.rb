@@ -8,7 +8,6 @@ module Cofidin
           xml.Emisor(comprobante.emisor.atributos_sat) do
           end
           xml.Receptor(comprobante.receptor.atributos_sat) do
-            xml.Domicilio(comprobante.receptor.domicilio.atributos_sat)
           end
           xml.Conceptos do
             comprobante.conceptos.each do |concepto|

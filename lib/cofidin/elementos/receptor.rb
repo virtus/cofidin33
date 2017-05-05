@@ -3,12 +3,6 @@ module Cofidin
     attr_accessor :rfc
     attr_accessor :nombre
 
-    attr_accessor :domicilio
-
-    def initialize
-      self.domicilio = Cofidin::Ubicacion.new
-    end
-
     def atributos_sat
       datos = {}
       datos[:rfc] = rfc
