@@ -2,36 +2,31 @@ require 'test_helper'
 
 class ComprobanteTest < Minitest::Spec
   before do
-    @atributos_comprobante = {
+    @datos_comprobante = {
       serie: 'A',
       folio: '1',
       fecha: '2016-12-15T17:31:46',
       sello: 'SELLO',
-      formaDePago: 'Pago en una sola exhibición',
-      noCertificado: '123456',
+      forma_pago: 'Pago en una sola exhibición',
+      no_certificado: '123456',
       certificado: 'CERTIFICADO',
-      condicionesDePago: 'Contra entrega',
-      subTotal: '10.00',
+      condiciones_de_pago: 'Contra entrega',
+      sub_total: '10.00',
       descuento: '0.00',
-      motivoDescuento: 'MOTIVO',
-      TipoCambio: '1.0000',
-      Moneda: 'MXN',
+      moneda: 'MXN',
+      tipo_cambio: '1.0000',
       total: '11.60',
-      tipoDeComprobante: 'ingreso',
-      metodoDePago: '03',
-      LugarExpedicion: 'México',
-      NumCtaPago: '234567',
-      FolioFiscalOrig: '345678',
-      SerieFolioFiscalOrig: 'SFFO',
-      FechaFolioFiscalOrig: '2016-12-15T17:31:46',
-      MontoFolioFiscalOrig: '10.00'
+      tipo_de_comprobante: 'ingreso',
+      metodo_de_pago: '03',
+      lugar_expedicion: '53050',
+      confirmacion: '234567'
     }
   end
 
   it 'genera la cadena original' do
     comprobante = Cofidin::Comprobante.new
-    comprobante.atributos_sat = @atributos_comprobante
+    comprobante.from_hash @datos_comprobante
     cadena = comprobante.cadena_original
-    cadena.must_equal '3.2|2016-12-15T17:31:46|ingreso|Pago en una sola exhibición|Contra entrega|10.00|0.00|1.0000|MXN|11.60|03|México|234567|345678|SFFO|2016-12-15T17:31:46|10.00'
+    cadena.must_equal '3.3|A|1|2016-12-15T17:31:46|Pago en una sola exhibición|123456|Contra entrega|10.00|0.00|MXN|1.0000|11.60|ingreso|03|53050|234567'
   end
 end
