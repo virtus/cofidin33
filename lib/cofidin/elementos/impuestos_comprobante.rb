@@ -1,5 +1,5 @@
 module Cofidin
-  class Impuestos
+  class ImpuestosComprobante
     attr_accessor :total_impuestos_retenidos
     attr_accessor :total_impuestos_trasladados
 
