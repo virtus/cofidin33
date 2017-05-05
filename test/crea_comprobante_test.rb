@@ -85,7 +85,7 @@ class CreaComprobanteTest < Minitest::Spec
     comprobante.receptor.must_be_instance_of Cofidin::Receptor
     comprobante.conceptos.length.must_equal 2
     comprobante.conceptos[0].must_be_instance_of Cofidin::Concepto
-    comprobante.impuestos.must_be_instance_of Cofidin::Impuestos
-    comprobante.impuestos.traslados[0].must_be_instance_of Cofidin::Traslado
+    comprobante.impuestos.must_be_instance_of Cofidin::ImpuestosComprobante
+    comprobante.impuestos.traslados[0].must_be_instance_of Cofidin::TrasladoComprobante
   end
 end

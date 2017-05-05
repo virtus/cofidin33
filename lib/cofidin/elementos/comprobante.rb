@@ -29,7 +29,7 @@ module Cofidin
       self.emisor = Cofidin::Emisor.new
       self.receptor = Cofidin::Receptor.new
       self.conceptos = []
-      self.impuestos = Cofidin::Impuestos.new
+      self.impuestos = Cofidin::ImpuestosComprobante.new
     end
 
     def atributos_sat

@@ -12,7 +12,7 @@ module Cofidin
       end
       comprobante.impuestos.from_hash params[:impuestos]
       params[:impuestos][:traslados].each do |t|
-        traslado = Cofidin::Traslado.new
+        traslado = Cofidin::TrasladoComprobante.new
         traslado.from_hash t
         comprobante.impuestos.traslados << traslado
       end
