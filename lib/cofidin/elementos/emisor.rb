@@ -4,10 +4,6 @@ module Cofidin
     attr_accessor :nombre
     attr_accessor :regimen_fiscal
 
-    def initialize
-      self.regimen_fiscal = Cofidin::RegimenFiscal.new
-    end
-
     def atributos_sat
       datos = {}
       datos[:rfc] = rfc

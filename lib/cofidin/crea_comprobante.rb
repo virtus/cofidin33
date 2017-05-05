@@ -4,7 +4,6 @@ module Cofidin
       comprobante = Cofidin::Comprobante.new
       comprobante.from_hash params
       comprobante.emisor.from_hash params[:emisor]
-      comprobante.emisor.regimen_fiscal.from_hash params[:emisor][:regimen_fiscal]
       comprobante.receptor.from_hash params[:receptor]
       comprobante.receptor.domicilio.from_hash params[:receptor][:domicilio]
       params[:conceptos].each do |c|

@@ -5,7 +5,6 @@ require "cofidin/elementos/emisor"
 require "cofidin/elementos/expedido_en"
 require "cofidin/elementos/impuestos"
 require "cofidin/elementos/receptor"
-require "cofidin/elementos/regimen_fiscal"
 require "cofidin/elementos/retencion"
 require "cofidin/elementos/traslado"
 

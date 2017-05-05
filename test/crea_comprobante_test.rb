@@ -82,7 +82,6 @@ class CreaComprobanteTest < Minitest::Spec
     comprobante = Cofidin::CreaComprobante.call(@params)
     comprobante.must_be_instance_of Cofidin::Comprobante
     comprobante.emisor.must_be_instance_of Cofidin::Emisor
-    comprobante.emisor.regimen_fiscal.must_be_instance_of Cofidin::RegimenFiscal
     comprobante.receptor.must_be_instance_of Cofidin::Receptor
     comprobante.receptor.domicilio.must_be_instance_of Cofidin::Ubicacion
     comprobante.conceptos.length.must_equal 2
