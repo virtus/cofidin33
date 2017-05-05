@@ -12,7 +12,7 @@ module Cofidin
     attr_accessor :impuestos
 
     def initialize
-      self.impuestos = Cofidin::Impuestos.new
+      self.impuestos = Cofidin::ImpuestosConcepto.new
     end
 
     def atributos_sat
