@@ -7,19 +7,8 @@ class EmisorTest < Minitest::Spec
       nombre: 'Virtus Consultores, S.A. de C.V.'
     }
 
-    domicilio_emisor = {
-      calle: 'Valle de Solís',
-      noExterior: '33',
-      colonia: 'El Mirador',
-      municipio: 'Naucalpan',
-      estado: 'México',
-      pais: 'México',
-      codigoPostal: '53050'
-    }
-
     @comprobante = Cofidin::Comprobante.new
     @comprobante.emisor.atributos_sat = @atributos_emisor
-    @comprobante.emisor.domicilio_fiscal.atributos_sat = domicilio_emisor
     xml = Cofidin::GeneraXml.call @comprobante
     doc = Nokogiri::XML(xml)
     @emisor = doc.at_css "cfdi|Emisor"
@@ -35,27 +24,6 @@ class EmisorTest < Minitest::Spec
       @emisor.attributes['nombre'].value.must_equal 'Virtus Consultores, S.A. de C.V.'
     end
   end
-
-  describe 'DomicilioFiscal' do
-    it 'tiene un atributo calle' do
-      @domicilio_fiscal.attributes['calle'].value.must_equal 'Valle de Solís'
-    end
-
-    it 'tiene un atributo municipio' do
-      @domicilio_fiscal.attributes['municipio'].value.must_equal 'Naucalpan'
-    end
-
-    it 'tiene un atributo estado' do
-      @domicilio_fiscal.attributes['estado'].value.must_equal 'México'
-    end
-
-    it 'tiene un atributo país' do
-      @domicilio_fiscal.attributes['pais'].value.must_equal 'México'
-    end
-
-    it 'tiene un atributo codigoPostal' do
-      @domicilio_fiscal.attributes['codigoPostal'].value.must_equal '53050'
-    end
   end
 
   describe 'cadena original' do

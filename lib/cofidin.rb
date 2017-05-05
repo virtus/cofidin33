@@ -1,7 +1,6 @@
 require "cofidin/version"
 require "cofidin/elementos/comprobante"
 require "cofidin/elementos/concepto"
-require "cofidin/elementos/domicilio_fiscal"
 require "cofidin/elementos/emisor"
 require "cofidin/elementos/expedido_en"
 require "cofidin/elementos/impuestos"

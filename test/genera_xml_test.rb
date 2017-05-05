@@ -24,11 +24,6 @@ class GeneraXmlTest < Minitest::Spec
     node.name.must_equal "Emisor"
   end
 
-  it 'crea un nodo DomicilioFiscal bajo el nodo Emisor' do
-    node = @doc.at_css "cfdi|Comprobante > cfdi|Emisor > cfdi|DomicilioFiscal"
-    node.name.must_equal "DomicilioFiscal"
-  end
-
   it 'crea un nodo RegimenFiscal bajo el nodo Emisor' do
     node = @doc.at_css "cfdi|Comprobante > cfdi|Emisor > cfdi|RegimenFiscal"
     node.name.must_equal "RegimenFiscal"

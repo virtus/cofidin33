@@ -6,7 +6,6 @@ module Cofidin
       builder = Nokogiri::XML::Builder.new do |xml|
         xml['cfdi'].Comprobante(comprobante.atributos_sat) do
           xml.Emisor(comprobante.emisor.atributos_sat) do
-            xml.DomicilioFiscal(comprobante.emisor.domicilio_fiscal.atributos_sat)
             xml.RegimenFiscal(comprobante.emisor.regimen_fiscal.atributos_sat)
           end
           xml.Receptor(comprobante.receptor.atributos_sat) do
