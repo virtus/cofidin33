@@ -3,8 +3,8 @@ require 'fixtures/comprobante_prueba'
 
 class GeneraXmlTest < Minitest::Spec
   before do
-    @comprobante = Cofidin::CreaComprobante.call(COMPROBANTE_PRUEBA)
-    xml = Cofidin::GeneraXml.call @comprobante
+    @comprobante = Cofidin33::CreaComprobante.call(COMPROBANTE_PRUEBA)
+    xml = Cofidin33::GeneraXml.call @comprobante
     @doc = Nokogiri::XML(xml)
   end
 

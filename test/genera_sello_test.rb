@@ -8,20 +8,20 @@ class GeneraSelloTest < Minitest::Spec
 
   it 'genera el sello a partir de la cadena original' do
     llave_privada = File.read('test/certificados/CSD01_AAA010101AAA.pem')
-    sello_digital = Cofidin::GeneraSello.call @cadena_original, llave_privada
+    sello_digital = Cofidin33::GeneraSello.call @cadena_original, llave_privada
     sello_digital.must_equal @sello_esperado
   end
 
   it 'el sello es diferente si cambia la cadena original' do
     llave_privada = File.read('test/certificados/CSD01_AAA010101AAA.pem')
     @cadena_original[4] = '3'
-    sello_digital = Cofidin::GeneraSello.call @cadena_original, llave_privada
+    sello_digital = Cofidin33::GeneraSello.call @cadena_original, llave_privada
     sello_digital.wont_equal @sello_esperado
   end
 
   it 'el sello es diferente si cambia la llave privada' do
     llave_privada = File.read('test/certificados/CSD02_AAA010101AAA.pem')
-    sello_digital = Cofidin::GeneraSello.call @cadena_original, llave_privada
+    sello_digital = Cofidin33::GeneraSello.call @cadena_original, llave_privada
     sello_digital.wont_equal @sello_esperado
   end
 end

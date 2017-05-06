@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class ImpuestosConcepto
     attr_accessor :retenciones
     attr_accessor :traslados

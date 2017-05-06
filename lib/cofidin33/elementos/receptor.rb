@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class Receptor
     attr_accessor :rfc
     attr_accessor :nombre

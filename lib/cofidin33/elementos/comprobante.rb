@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class Comprobante
     attr_accessor :version
     attr_accessor :serie
@@ -26,10 +26,10 @@ module Cofidin
 
     def initialize
       self.version = '3.3'
-      self.emisor = Cofidin::Emisor.new
-      self.receptor = Cofidin::Receptor.new
+      self.emisor = Cofidin33::Emisor.new
+      self.receptor = Cofidin33::Receptor.new
       self.conceptos = []
-      self.impuestos = Cofidin::ImpuestosComprobante.new
+      self.impuestos = Cofidin33::ImpuestosComprobante.new
     end
 
     def atributos_sat

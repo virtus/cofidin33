@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class Concepto
     attr_accessor :clave_prod_serv
     attr_accessor :no_identificacion
@@ -12,7 +12,7 @@ module Cofidin
     attr_accessor :impuestos
 
     def initialize
-      self.impuestos = Cofidin::ImpuestosConcepto.new
+      self.impuestos = Cofidin33::ImpuestosConcepto.new
     end
 
     def atributos_sat

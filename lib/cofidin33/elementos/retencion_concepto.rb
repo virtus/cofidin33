@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class RetencionConcepto
     attr_accessor :base
     attr_accessor :impuesto

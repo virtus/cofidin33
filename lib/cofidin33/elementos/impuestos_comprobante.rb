@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class ImpuestosComprobante
     attr_accessor :total_impuestos_retenidos
     attr_accessor :total_impuestos_trasladados

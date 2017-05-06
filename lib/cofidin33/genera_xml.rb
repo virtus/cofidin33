@@ -1,6 +1,6 @@
 require 'nokogiri'
 
-module Cofidin
+module Cofidin33
   class GeneraXml
     def self.call(comprobante)
       builder = Nokogiri::XML::Builder.new do |xml|

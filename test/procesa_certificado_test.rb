@@ -31,9 +31,9 @@ class ProcesaCertificadoTest < Minitest::Spec
   end
 
   it 'aplica datos del certificado al comprobante' do
-    comprobante = Cofidin::Comprobante.new
+    comprobante = Cofidin33::Comprobante.new
     certificado = File.read('test/certificados/CSD01_AAA010101AAA.cer')
-    serie, cert = Cofidin::ProcesaCertificado.call certificado
+    serie, cert = Cofidin33::ProcesaCertificado.call certificado
     serie.must_equal '20001000000200001428'
     cert.must_equal @certificado
   end

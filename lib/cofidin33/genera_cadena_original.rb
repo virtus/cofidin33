@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class GeneraCadenaOriginal
     def self.call(comprobante)
       cadenas = []

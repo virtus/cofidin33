@@ -79,13 +79,13 @@ class CreaComprobanteTest < Minitest::Spec
   end
 
   it 'crea un comprobante a partir de un hash' do
-    comprobante = Cofidin::CreaComprobante.call(@params)
-    comprobante.must_be_instance_of Cofidin::Comprobante
-    comprobante.emisor.must_be_instance_of Cofidin::Emisor
-    comprobante.receptor.must_be_instance_of Cofidin::Receptor
+    comprobante = Cofidin33::CreaComprobante.call(@params)
+    comprobante.must_be_instance_of Cofidin33::Comprobante
+    comprobante.emisor.must_be_instance_of Cofidin33::Emisor
+    comprobante.receptor.must_be_instance_of Cofidin33::Receptor
     comprobante.conceptos.length.must_equal 2
-    comprobante.conceptos[0].must_be_instance_of Cofidin::Concepto
-    comprobante.impuestos.must_be_instance_of Cofidin::ImpuestosComprobante
-    comprobante.impuestos.traslados[0].must_be_instance_of Cofidin::TrasladoComprobante
+    comprobante.conceptos[0].must_be_instance_of Cofidin33::Concepto
+    comprobante.impuestos.must_be_instance_of Cofidin33::ImpuestosComprobante
+    comprobante.impuestos.traslados[0].must_be_instance_of Cofidin33::TrasladoComprobante
   end
 end

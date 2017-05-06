@@ -11,7 +11,7 @@ class EmisorTest < Minitest::Spec
 
   describe 'cadena original' do
     it 'genera' do
-      emisor = Cofidin::Emisor.new
+      emisor = Cofidin33::Emisor.new
       emisor.from_hash @datos_emisor
       cadena = emisor.cadena_original
       cadena.must_equal 'VCO980224GM7|Virtus Consultores, S.A. de C.V.|Régimen general de personas morales'

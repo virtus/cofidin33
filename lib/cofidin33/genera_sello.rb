@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   require 'openssl'
   require 'base64'
 

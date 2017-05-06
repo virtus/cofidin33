@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class Emisor
     attr_accessor :rfc
     attr_accessor :nombre

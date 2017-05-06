@@ -13,7 +13,7 @@ class ReceptorTest < Minitest::Spec
 
   describe 'cadena original' do
     it 'genera' do
-      receptor = Cofidin::Receptor.new
+      receptor = Cofidin33::Receptor.new
       receptor.from_hash @datos_receptor
       cadena = receptor.cadena_original
       cadena.must_equal 'FTV961129GP7|Ferrocarril y Terminal del Valle de México, S.A. de C.V.|MX|NRIT|UC'

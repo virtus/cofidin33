@@ -3,7 +3,7 @@ require 'fixtures/comprobante_prueba'
 
 class GeneraCadenaOriginalTest < Minitest::Spec
   before do
-    @comprobante = Cofidin::CreaComprobante.call(COMPROBANTE_PRUEBA)
+    @comprobante = Cofidin33::CreaComprobante.call(COMPROBANTE_PRUEBA)
   end
 
   it 'genera la cadena original' do
@@ -18,7 +18,7 @@ class GeneraCadenaOriginalTest < Minitest::Spec
                       "|IVA|16.00|1.65|1.65||"
 
 
-    cadena_original = Cofidin::GeneraCadenaOriginal.call @comprobante
+    cadena_original = Cofidin33::GeneraCadenaOriginal.call @comprobante
     cadena_original.must_equal cadena_esperada
   end
 end
