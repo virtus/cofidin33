@@ -28,7 +28,7 @@ COMPROBANTE_PRUEBA = {
     {
       clave_prod_serv: '43231500',
       cantidad: '1',
-      unidad: 'H87',
+      clave_unidad: 'H87',
       descripcion: 'Concepto 1',
       valor_unitario: '1.23',
       importe: '1.23',
@@ -47,7 +47,7 @@ COMPROBANTE_PRUEBA = {
     {
       clave_prod_serv: 81111504,
       cantidad: '2',
-      unidad: 'H87',
+      clave_unidad: 'H87',
       descripcion: 'Concepto 2',
       valor_unitario: '4.56',
       importe: '9.12',
