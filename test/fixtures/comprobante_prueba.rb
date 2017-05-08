@@ -13,13 +13,13 @@ COMPROBANTE_PRUEBA = {
 
   emisor: {
     rfc: 'VCO980224GM7',
-    nombre: 'Virtus Consultores, S.A. de C.V.',
+    nombre: 'Virtus Consultores, SA de CV',
     regimen_fiscal: '601'
   },
 
   receptor: {
     rfc: 'CRM6702109K6',
-    nombre: 'Cruz Roja Mexicana, I.A.P.',
+    nombre: 'Cruz Roja Mexicana, IAP',
     uso_cfdi: 'G01'
 
   },
