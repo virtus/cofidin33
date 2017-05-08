@@ -8,7 +8,7 @@ COMPROBANTE_PRUEBA = {
   moneda: 'MXN',
   total: '12.00',
   tipo_de_comprobante: 'I',
-  metodo_de_pago: '03',
+  metodo_pago: '03',
   lugar_expedicion: '53100',
 
   emisor: {

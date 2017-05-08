@@ -15,7 +15,7 @@ module Cofidin33
     attr_accessor :moneda
     attr_accessor :total
     attr_accessor :tipo_de_comprobante
-    attr_accessor :metodo_de_pago
+    attr_accessor :metodo_pago
     attr_accessor :lugar_expedicion
     attr_accessor :confirmacion
 
@@ -52,7 +52,7 @@ module Cofidin33
       datos[:TipoCambio] = tipo_cambio if tipo_cambio
       datos[:Total] = total
       datos[:TipoDeComprobante] = tipo_de_comprobante
-      datos[:MetodoDePago] = metodo_de_pago
+      datos[:MetodoPago] = metodo_pago
       datos[:LugarExpedicion] = lugar_expedicion
       datos[:Confirmacion] = confirmacion if confirmacion
       datos
@@ -73,7 +73,7 @@ module Cofidin33
       @tipo_cambio = params[:tipo_cambio]
       @total = params[:total]
       @tipo_de_comprobante = params[:tipo_de_comprobante]
-      @metodo_de_pago = params[:metodo_de_pago]
+      @metodo_pago = params[:metodo_pago]
       @lugar_expedicion = params[:lugar_expedicion]
       @confirmacion = params[:confirmacion]
     end
@@ -93,7 +93,7 @@ module Cofidin33
         :tipo_cambio,
         :total,
         :tipo_de_comprobante,
-        :metodo_de_pago,
+        :metodo_pago,
         :lugar_expedicion,
         :confirmacion
       ]

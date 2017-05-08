@@ -17,7 +17,7 @@ class ComprobanteTest < Minitest::Spec
       tipo_cambio: '1.0000',
       total: '11.60',
       tipo_de_comprobante: 'ingreso',
-      metodo_de_pago: '03',
+      metodo_pago: '03',
       lugar_expedicion: '53050',
       confirmacion: '234567'
     }
