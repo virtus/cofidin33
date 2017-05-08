@@ -19,6 +19,11 @@ class GeneraXmlTest < Minitest::Spec
     node.name.must_equal "Comprobante"
   end
 
+  it 'la versión del comprobante debe ser 3.3' do
+    node = @doc.at_css ":root"
+    node.attributes["schemaLocation"].value.must_equal "http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd"
+  end
+
   it 'crea un nodo Emisor bajo el nodo Comprobante' do
     node = @doc.at_css "cfdi|Comprobante > cfdi|Emisor"
     node.name.must_equal "Emisor"

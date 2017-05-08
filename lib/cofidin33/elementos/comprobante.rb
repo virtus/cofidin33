@@ -36,7 +36,7 @@ module Cofidin33
       datos = {}
       datos['xmlns:cfdi'] = 'http://www.sat.gob.mx/cfd/3'
       datos['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
-      datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd'
+      datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
       datos[:Version] = version
       datos[:Serie] = serie if serie
       datos[:Folio] = folio if folio
