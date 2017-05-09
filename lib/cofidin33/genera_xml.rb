@@ -9,7 +9,26 @@ module Cofidin33
           xml.Receptor(comprobante.receptor.atributos_sat)
           xml.Conceptos do
             comprobante.conceptos.each do |concepto|
-              xml.Concepto(concepto.atributos_sat)
+              xml.Concepto(concepto.atributos_sat) do
+                if(concepto.impuestos.traslados.length + concepto.impuestos.traslados.length) > 0
+                  xml.Impuestos do
+                    if concepto.impuestos.traslados.length > 0
+                      xml.Traslados do
+                        concepto.impuestos.traslados.each do |traslado|
+                          xml.Traslado(traslado.atributos_sat)
+                        end
+                      end
+                    end
+                    if concepto.impuestos.retenciones.length > 0
+                      xml.Retenciones do
+                        concepto.impuestos.retenciones.each do |retencion|
+                          xml.Retencion(retencion.atributos_sat)
+                        end
+                      end
+                    end
+                  end
+                end
+              end
             end
           end
           xml.Impuestos(comprobante.impuestos.atributos_sat) do
