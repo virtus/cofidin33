@@ -32,7 +32,7 @@ COMPROBANTE_PRUEBA = {
       descripcion: 'Concepto 1',
       valor_unitario: '1.23',
       importe: '1.23',
-      impuestos: [
+      impuestos: {
         traslados: [
           {
             base: '1.23',
@@ -41,8 +41,10 @@ COMPROBANTE_PRUEBA = {
             tasa_o_cuota: '0.160000',
             importe: '0.1968'
           }
+        ],
+        retenciones: [
         ]
-      ],
+      }
     },
     {
       clave_prod_serv: 81111504,
@@ -51,7 +53,7 @@ COMPROBANTE_PRUEBA = {
       descripcion: 'Concepto 2',
       valor_unitario: '4.56',
       importe: '9.12',
-      impuestos: [
+      impuestos: {
         traslados: [
           {
             base: '9.12',
@@ -60,8 +62,10 @@ COMPROBANTE_PRUEBA = {
             tasa_o_cuota: '0.160000',
             importe: '1.4592'
           }
+        ],
+        retenciones: [
         ]
-      ]
+      }
     }
   ],
 

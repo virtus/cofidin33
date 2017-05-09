@@ -8,6 +8,16 @@ module Cofidin33
       params[:conceptos].each do |c|
         concepto = Cofidin33::Concepto.new
         concepto.from_hash c
+        c[:impuestos][:traslados].each do |t|
+          traslado = Cofidin33::TrasladoConcepto.new
+          traslado.from_hash t
+          concepto.impuestos.traslados << traslado
+        end
+        c[:impuestos][:retenciones].each do |r|
+          retencion = Cofidin33::RetencionConcepto.new
+          retencion.from_hash r
+          concepto.impuestos.retenciones << retencion
+        end
         comprobante.conceptos << concepto
       end
       comprobante.impuestos.from_hash params[:impuestos]
