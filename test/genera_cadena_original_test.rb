@@ -7,16 +7,12 @@ class GeneraCadenaOriginalTest < Minitest::Spec
   end
 
   it 'genera la cadena original' do
-    cadena_esperada = "||3.2|2016-12-15T17:31:46|ingreso|Pago en una sola exhibición"\
-                      "|10.35|12.00|03|Naucalpan, Estado de México"\
-                      "|VCO980224GM7|Virtus Consultores, S.A. de C.V."\
-                      "|Valle de Solís|33|El Mirador|Naucalpan|México|México|53050"\
-                      "|Régimen general de ley de personal morales"\
-                      "|CRM6702109K6|Cruz Roja Mexicana, I.A.P."\
-                      "|Juan Luis Vives|2002|A|Los Morales Polanco|Miguel Hidalgo|Ciudad de México|México|11510"\
-                      "|1|PIEZA|ABC|Concepto 1|1.23|1.23|2|PIEZA|DEF|Concepto 2|4.56|9.12"\
-                      "|IVA|16.00|1.65|1.65||"
-
+    cadena_esperada = "||3.3|B|1|2016-12-15T17:31:46|03|12345678901234567890|10.35|MXN|12.00|I|PUE|53100"\
+                      "|VCO980224GM7|Virtus Consultores, SA de CV|601"\
+                      "|CRM6702109K6|Cruz Roja Mexicana, IAP|G01"\
+                      "|43231500|1|H87|Concepto 1|1.23|1.23|1.23|002|Tasa|0.160000|0.1968"\
+                      "|81111504|2|H87|Concepto 2|4.56|9.12|9.12|002|Tasa|0.160000|1.4592"\
+                      "|002|Tasa|0.160000|1.656|1.656||"
 
     cadena_original = Cofidin33::GeneraCadenaOriginal.call @comprobante
     cadena_original.must_equal cadena_esperada
