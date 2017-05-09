@@ -71,7 +71,7 @@ COMPROBANTE_PRUEBA = {
       {
         impuesto: '002',
         tipo_factor: 'Tasa',
-        tasa_o_cuota: '0.1600',
+        tasa_o_cuota: '0.160000',
         importe: '1.656'
       }
     ]
