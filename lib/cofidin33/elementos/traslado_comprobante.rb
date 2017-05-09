@@ -1,33 +1,31 @@
-module Cofidin
-  class Traslado
+module Cofidin33
+  class TrasladoComprobante
     attr_accessor :impuesto
-    attr_accessor :tasa
+    attr_accessor :tipo_factor
+    attr_accessor :tasa_o_cuota
     attr_accessor :importe
 
     def atributos_sat
       datos = {}
-      datos[:impuesto] = impuesto
-      datos[:tasa] = tasa
-      datos[:importe] = importe
+      datos[:Impuesto] = impuesto
+      datos[:TipoFactor] = tipo_factor
+      datos[:TasaOCuota] = tasa_o_cuota
+      datos[:Importe] = importe
       datos
-    end
-
-    def atributos_sat=(params)
-      self.impuesto = params[:impuesto]
-      self.tasa = params[:tasa]
-      self.importe = params[:importe]
     end
 
     def from_hash(params)
       @impuesto = params[:impuesto]
-      @tasa = params[:tasa]
+      @tipo_factor = params[:tipo_factor]
+      @tasa_o_cuota = params[:tasa_o_cuota]
       @importe = params[:importe]
     end
 
     def cadena_original
       campos_cadena = [
         :impuesto,
-        :tasa,
+        :tipo_factor,
+        :tasa_o_cuota,
         :importe
       ]
 

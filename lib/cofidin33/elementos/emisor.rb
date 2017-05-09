@@ -1,35 +1,28 @@
-module Cofidin
-  class Receptor
+module Cofidin33
+  class Emisor
     attr_accessor :rfc
     attr_accessor :nombre
-
-    attr_accessor :domicilio
-
-    def initialize
-      self.domicilio = Cofidin::Ubicacion.new
-    end
+    attr_accessor :regimen_fiscal
 
     def atributos_sat
       datos = {}
-      datos[:rfc] = rfc
-      datos[:nombre] = nombre if nombre
+      datos[:Rfc] = rfc
+      datos[:Nombre] = nombre if nombre
+      datos[:RegimenFiscal] = regimen_fiscal
       datos
-    end
-
-    def atributos_sat=(params)
-      self.rfc = params[:rfc]
-      self.nombre = params[:nombre]
     end
 
     def from_hash(params)
       @rfc = params[:rfc]
       @nombre = params[:nombre]
+      @regimen_fiscal = params[:regimen_fiscal]
     end
 
     def cadena_original
       campos_cadena = [
         :rfc,
-        :nombre
+        :nombre,
+        :regimen_fiscal
       ]
 
       campos_con_datos = campos_cadena.select { |campo| self.send(campo) }

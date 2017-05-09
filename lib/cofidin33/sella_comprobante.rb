@@ -1,4 +1,4 @@
-module Cofidin
+module Cofidin33
   class SellaComprobante
     def self.call(comprobante, certificado, llave_privada, fecha_hora)
       comprobante.fecha = fecha_hora

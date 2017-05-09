@@ -1,28 +1,28 @@
-module Cofidin
-  class RegimenFiscal
-    attr_accessor :regimen
+module Cofidin33
+  class ImpuestosConcepto
+    attr_accessor :retenciones
+    attr_accessor :traslados
+
+    def initialize
+      self.retenciones = []
+      self.traslados = []
+    end
 
     def atributos_sat
       datos = {}
-      datos[:Regimen] = regimen
       datos
     end
 
-    def atributos_sat=(params)
-      self.regimen = params[:Regimen]
-    end
-
     def from_hash(params)
-      @regimen = params[:regimen]
     end
 
     def cadena_original
       campos_cadena = [
-        :regimen
       ]
 
       campos_con_datos = campos_cadena.select { |campo| self.send(campo) }
       campos_con_datos.map { |campo| self.send(campo) }.join '|'
     end
+
   end
 end

@@ -1,18 +1,13 @@
-module Cofidin
-  class Retencion
+module Cofidin33
+  class RetencionComprobante
     attr_accessor :impuesto
     attr_accessor :importe
 
     def atributos_sat
       datos = {}
-      datos[:impuesto] = impuesto
-      datos[:importe] = importe
+      datos[:Impuesto] = impuesto
+      datos[:Importe] = importe
       datos
-    end
-
-    def atributos_sat=(params)
-      self.impuesto = params[:impuesto]
-      self.importe = params[:importe]
     end
 
     def from_hash(params)
