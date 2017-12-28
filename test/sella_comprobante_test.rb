@@ -14,7 +14,7 @@ class SellaComprobanteTest < Minitest::Spec
   it 'sella el comprobante' do
     certificado = File.read('test/certificados/CSD01_AAA010101AAA.cer')
     llave_privada = File.read('test/certificados/CSD01_AAA010101AAA.pem')
-    fecha_hora = Time.now.iso8601
+    fecha_hora = Time.now.iso8601[0..18]
     xml = Cofidin33::SellaComprobante.call @comprobante, certificado, llave_privada, fecha_hora
     doc = Nokogiri::XML(xml)
     node = doc.at_css "cfdi|Comprobante"
