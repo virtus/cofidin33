@@ -21,7 +21,6 @@ COMPROBANTE_PRUEBA = {
     rfc: 'CRM6702109K6',
     nombre: 'Cruz Roja Mexicana, IAP',
     uso_cfdi: 'G01'
-
   },
 
   conceptos: [
