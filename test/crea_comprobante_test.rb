@@ -3,7 +3,7 @@ require 'fixtures/comprobante_prueba'
 
 class CreaComprobanteTest < Minitest::Spec
   it 'crea un comprobante a partir de un hash' do
-    comprobante = Cofidin33::CreaComprobante.call(COMPROBANTE_PRUEBA)
+    comprobante = Cofidin33::CreaComprobante.call(hash: COMPROBANTE_PRUEBA)
     comprobante.must_be_instance_of Cofidin33::Comprobante
     comprobante.emisor.must_be_instance_of Cofidin33::Emisor
     comprobante.receptor.must_be_instance_of Cofidin33::Receptor
