@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante
+  xmlns:cfdi="http://www.sat.gob.mx/cfd/3"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Serie="A" Folio="7164" FormaPago="99" SubTotal="800.00" Moneda="MXN" TipoCambio="1" Total="928.00" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="53100" Fecha="2017-11-01T10:25:00" NoCertificado="00001000000303020359" Certificado="MIIEjTCCA3WgAwIBAgIUMDAwMDEwMDAwMDAzMDMwMjAzNTkwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xNDAyMjAyMDA0MjRaFw0xODAyMjAyMDA0MjRaMIHZMSkwJwYDVQQDEyBBTFNBQyBJTk1PQklMSUFSSUEgUyBERSBSTCBERSBDVjEpMCcGA1UEKRMgQUxTQUMgSU5NT0JJTElBUklBIFMgREUgUkwgREUgQ1YxKTAnBgNVBAoTIEFMU0FDIElOTU9CSUxJQVJJQSBTIERFIFJMIERFIENWMSUwIwYDVQQtExxBSU4xNDAyMTBONzcgLyBTQUNBNzIxMDE4VEI0MR4wHAYDVQQFExUgLyBTQUNBNzIxMDE4SERGTVNMMDIxDzANBgNVBAsTBlVOSURBRDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAoL1BkI0lOyTJm+lULid/owxty4SoynTLQn1PVlgIIQPA+VIUAtkj+e5rONFSuF7SK9WMC/ycuh+LlDP7CkyK1qhjf+aeq3wqCtbtUed9B01l+U8/mRZ+YK3m+aFccLBj87JbbhTLEU03czPKmj+xsLUyIkE5IPSrERaKxVL/A98CAwEAAaMdMBswDAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQEFBQADggEBAEvCOdRe4B5yXa6B976JHkZ2W4/oF6F5/5nfiebd02u9NGKi03iCNmPqk7jg8OhNFSAW5u7UoTrdJPV3r5mJ/lrKba+5Nvhq2fqch0l/TWyO0FAKiIOofV8wVVm9HPAhxz0J39oOQE8ZDUj82eRzvbRHvmXTjE3b0hrJtRef/W1Mi63SVVPpjzkr/yo0yYk5OhIOPv4iVEl95qhla082+QlHFv505LhlPa5k+U3OzOnrsSLbDnZCI92+eoXkx+gvxR0Ve05K1e37ayD2aEL987GxWNWiUZ2dIVyscVj7BMiWMkbIQUwGSIi9tDodju7lKkEH8acttQusbnRkXaLpqQA=" Sello="ZzbW9uf+KF+5dhVKYxLzxYExWZGIQotjUUKH2wGCa0DRnTdcyaeBV8l4yeNxFAmc9YkyM9l0smv61l67vntSmxXFnT3aiXeltKMd0qDQUshCRBk5WEy8gkbYFs61goKX6zRl4CYtsXdGploQ6OKLQavWlADrYxZzRBv+j0wM/qk=">
+  <cfdi:Emisor Rfc="AIN140210N77" Nombre="ALSAC INMOBILIARIA S DE RL DE CV" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="VCO980224GM7" Nombre="VIRTUS CONSULTORES S.A DE C.V" UsoCFDI="G03"/>
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="80161504" NoIdentificacion="SER" Cantidad="1.00" ClaveUnidad="E48" Unidad="Unidad de servicio" Descripcion="PRESTACION DE SERVICIOS DE OFICINA" ValorUnitario="800.000000" Importe="800.000000">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="800.000000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="128.000000"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="128.00">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="128.00"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital
+      xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/timbrefiscaldigital/TimbreFiscalDigitalv11.xsd" Version="1.1" UUID="4D819F8B-7327-42C1-B0E1-1EB895C39DF3" FechaTimbrado="2017-11-01T10:25:01" SelloCFD="ZzbW9uf+KF+5dhVKYxLzxYExWZGIQotjUUKH2wGCa0DRnTdcyaeBV8l4yeNxFAmc9YkyM9l0smv61l67vntSmxXFnT3aiXeltKMd0qDQUshCRBk5WEy8gkbYFs61goKX6zRl4CYtsXdGploQ6OKLQavWlADrYxZzRBv+j0wM/qk=" NoCertificadoSAT="00001000000404477432" SelloSAT="TMEDZkoAIBdsj2Guy/z/u/YEmeV3D9vovhHt01jnwJ9Tdfoyub6rWojTPoBGWUGLMj3w2KhuLtaX9IoQPbuQDxnO0kx1KWe0nMma7T6w56kksq1ge8K0KnNb4mYkuCJ0Tkci/qAI8wRrD5k0uKCDd/0CUaR18RqMKRdzrZrOnIjbQ6Vuu/zm9sXP/CR+IMg2BO469qapOGMB4XHJ+dXq3jqTesRGcmhTz2cmootCoE8KT4T3KSuxdBkuHhVLNpQ4QyINyuq7l9lPRYdr92Dz+EkOeMLqpM1BblmGZNx4KWOzvi7X61ag2pXEs7nD2qfocw4G7dc5v+BA79zyPUPuWw==" RfcProvCertif="EME000602QR9"/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

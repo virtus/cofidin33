@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'cofidin/version'
+require 'cofidin33/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "cofidin"
-  spec.version       = Cofidin::VERSION
+  spec.name          = "cofidin33"
+  spec.version       = Cofidin33::VERSION
   spec.authors       = ["Hector Sansores"]
   spec.email         = ["hector.sansores@virtus.com.mx"]
 
   spec.summary       = %q{CDFI - Comprobante Fiscal Digital por Internet.}
   spec.description   = %q{Creación de XML conforme a los requerimientos del SAT México.}
-  spec.homepage      = "https://github.com/hectorsq/cofidin"
+  spec.homepage      = "https://github.com/hectorsq/cofidin33"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -31,7 +31,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "nokogiri", "~> 1.6"
-  spec.add_runtime_dependency "dry-validation", "~> 0.10"
 
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"

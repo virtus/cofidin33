@@ -2,26 +2,32 @@ require 'test_helper'
 
 class GeneraSelloTest < Minitest::Spec
   before do
-    @cadena_original = '||3.2|2013-12-02T22:18:24|ingreso|PAGO EN UNA SOLA EXHIBICION|1000.00|1160.00|TRANSFERENCIA ELECTRONICA|D.F.,MEXICO|DESCONOCIDO|AAA010101AAA|EMPRESA DEMO|REFORMA|BENITO JUAREZ|DISTRITO FEDERAL|MEXICO|34343|PERSONA FISCA|XAXX010101000|PUBLICO EN GENERAL|INSURGENTES|MEXICO|1|CANT|PZA|1000.00|1000.00|IVA|160.00|160.00||'
-    @sello_esperado  = "J3gqqX75OpgU+/P3JvT7n74khv4hlqLdmiBbaEH7vT4RyZ3L9UPpPv0W3ABWYVljMCtQQGgMkj2soq/kXNayUWvU7jmZVzr2z2IgL8xnhqTgkNP03SlMdHJutdKiWyebJhCaFDw+MP+4RAzqwlsSM7bA9CnfUYUBcjFFyP/s4+w="
+    @cadena_original = "||3.3|B|1|2016-12-15T17:31:46|03|12345678901234567890|10.35|MXN|12.00|I|PUE|53100"\
+                       "|VCO980224GM7|Virtus Consultores, SA de CV|601"\
+                       "|CRM6702109K6|Cruz Roja Mexicana, IAP|G01"\
+                       "|43231500|1|H87|Concepto 1|1.23|1.23|1.23|002|Tasa|0.160000|0.1968"\
+                       "|81111504|2|H87|Concepto 2|4.56|9.12|9.12|002|Tasa|0.160000|1.4592"\
+                       "|002|Tasa|0.160000|1.656|1.656||"
+
+    @sello_esperado  = "STvLzmOb7iJvUV6guvh4ag0iiD/u3B5fiY3aEiBUrkw7KH2vlHwU9HPNIqXJ1intQnYC/TYab1ILnSTV+vCAHswRRFsOh58zUogIFY0DP1hbr6rhsoTtYPN9Oc2YTQ/ft3dyWhG4Lc5216DjDlSFjxv18AzC8dRQLtATsvfGcGE="
   end
 
   it 'genera el sello a partir de la cadena original' do
     llave_privada = File.read('test/certificados/CSD01_AAA010101AAA.pem')
-    sello_digital = Cofidin::GeneraSello.call @cadena_original, llave_privada
+    sello_digital = Cofidin33::GeneraSello.call @cadena_original, llave_privada
     sello_digital.must_equal @sello_esperado
   end
 
   it 'el sello es diferente si cambia la cadena original' do
     llave_privada = File.read('test/certificados/CSD01_AAA010101AAA.pem')
-    @cadena_original[4] = '3'
-    sello_digital = Cofidin::GeneraSello.call @cadena_original, llave_privada
+    @cadena_original[4] = '2'
+    sello_digital = Cofidin33::GeneraSello.call @cadena_original, llave_privada
     sello_digital.wont_equal @sello_esperado
   end
 
   it 'el sello es diferente si cambia la llave privada' do
     llave_privada = File.read('test/certificados/CSD02_AAA010101AAA.pem')
-    sello_digital = Cofidin::GeneraSello.call @cadena_original, llave_privada
+    sello_digital = Cofidin33::GeneraSello.call @cadena_original, llave_privada
     sello_digital.wont_equal @sello_esperado
   end
 end

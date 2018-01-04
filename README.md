@@ -1,41 +1,50 @@
-# Cofidin
+# Cofidin33
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cofidin`. To experiment with that code, run `bin/console` for an interactive prompt.
+Genera un XML válido, genera la cadena original y sella un CFDI versión 3.3
 
-TODO: Delete this and the text above, and describe your gem
+## Instalación
 
-## Installation
-
-Add this line to your application's Gemfile:
+Agrega esta línea en el Gemfile de tu aplicación:
 
 ```ruby
-gem 'cofidin'
+gem 'cofidin33'
 ```
 
-And then execute:
+Luego ejecuta el comando:
 
     $ bundle
 
-Or install it yourself as:
+O instálalo manualmente:
 
-    $ gem install cofidin
+    $ gem install cofidin33
 
-## Usage
+## Descripción
 
-TODO: Write usage instructions here
+El objetivo de esta gema es evitar el manejo de XML usando en su lugar un hash.
 
-## Development
+Esta gema hace lo siguiente:
+* Genera el XML que cumple con los estándares del SAT a partir de un hash.
+* Genera un hash a partir de un XML
+* Sella el XML con el certificado del emisor
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Esta gema no timbra el comprobante, solamente genera un XML listo para timbrar.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Esta gema no realiza ningún cálculo ni redondeo, utiliza directamente los datos que se pasaron cómo parámetros. Por ello, todos los datos que correspondan a cantidades numéricas deben pasarse como strings con el número de decimales requeridos.
 
-## Contributing
+## Uso
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/cofidin. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+```ruby
+# Crea comprobante en XML
+xml = Cofidin33::CreaComprobante.call(hash: invoice_hash)
 
+# Sella un comprobante
+xml_sellado = Cofidin33::SellaComprobante.call(xml: xml, certificado: certificado, llave_privada: llave_privasa, fecha_hora: fecha_hora)
 
-## License
+# Convierte el XML a un hash
+hash = Cofidin33::CreaHash.call(xml: xml)
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+```
 
+## Licencia
+
+Esta gema está disponible como código abierto de acuerdo con los términos de la [Licencia MIT](http://opensource.org/licenses/MIT).

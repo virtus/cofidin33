@@ -1,5 +1,5 @@
-module Cofidin
-  class Impuestos
+module Cofidin33
+  class ImpuestosComprobante
     attr_accessor :total_impuestos_retenidos
     attr_accessor :total_impuestos_trasladados
 
@@ -13,14 +13,9 @@ module Cofidin
 
     def atributos_sat
       datos = {}
-      datos[:totalImpuestosRetenidos] = total_impuestos_retenidos if total_impuestos_retenidos
-      datos[:totalImpuestosTrasladados] = total_impuestos_trasladados if total_impuestos_trasladados
+      datos[:TotalImpuestosRetenidos] = total_impuestos_retenidos if total_impuestos_retenidos
+      datos[:TotalImpuestosTrasladados] = total_impuestos_trasladados if total_impuestos_trasladados
       datos
-    end
-
-    def atributos_sat=(params)
-      self.total_impuestos_retenidos = params[:totalImpuestosRetenidos]
-      self.total_impuestos_trasladados = params[:totalImpuestosTrasladados]
     end
 
     def from_hash(params)
