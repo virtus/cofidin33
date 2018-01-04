@@ -16,6 +16,7 @@ require "cofidin33/genera_cadena_original"
 require "cofidin33/genera_sello"
 require "cofidin33/procesa_certificado"
 require "cofidin33/sella_comprobante"
+require "cofidin33/crea_hash"
 
 module Cofidin33
 end

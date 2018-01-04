@@ -113,7 +113,7 @@ module Cofidin33
 
       retenciones_xml.each do |retencion_xml|
         invoice_hash[:impuestos][:retenciones] << {
-          tipo: InvoiceTax::RETENCION,
+          tipo: 'RETENCION',
           impuesto: retencion_xml['Impuesto'],
           importe: retencion_xml['Importe']
         }
@@ -121,7 +121,7 @@ module Cofidin33
 
       traslados_xml.each do |traslado_xml|
         invoice_hash[:impuestos][:traslados] << {
-          tipo: InvoiceTax::TRASLADO,
+          tipo: 'TRASLADO',
           impuesto: traslado_xml['Impuesto'],
           tipo_factor: traslado_xml['TipoFactor'],
           tasa_cuota: traslado_xml['TasaOCuota'],
