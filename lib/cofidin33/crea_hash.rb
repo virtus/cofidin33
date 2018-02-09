@@ -10,7 +10,6 @@ module Cofidin33
       emisor_xml = doc.at_css 'cfdi|Comprobante > cfdi|Emisor'
       receptor_xml = doc.at_css 'cfdi|Comprobante > cfdi|Receptor'
       conceptos_xml = doc.css 'cfdi|Comprobante > cfdi|Conceptos > cfdi|Concepto'
-      impuestos_xml = doc.at_css 'cfdi|Comprobante > cfdi|Impuestos'
       retenciones_xml = doc.css 'cfdi|Comprobante > cfdi|Impuestos > cfdi|Retenciones > cfdi|Retencion'
       traslados_xml = doc.css 'cfdi|Comprobante > cfdi|Impuestos > cfdi|Traslados > cfdi|Traslado'
       complemento = doc.at_css 'cfdi|Comprobante > cfdi|Complemento'
@@ -49,12 +48,6 @@ module Cofidin33
           uso_cfdi: receptor_xml['UsoCFDI']
         },
         conceptos: [],
-        impuestos: {
-          total_impuestos_retenidos: impuestos_xml['TotalImpuestosRetenidos'],
-          total_impuestos_trasladados: impuestos_xml['TotalImpuestosTrasladados'],
-          retenciones: [],
-          traslados: []
-        },
         complemento: {
           timbre_fiscal: {
             version: timbre_fiscal['Version'],
@@ -66,6 +59,17 @@ module Cofidin33
           }
         }
       }
+
+      if invoice_hash[:tipo_de_comprobante] != 'N'
+        impuestos_xml = doc.at_css 'cfdi|Comprobante > cfdi|Impuestos'
+        invoice_hash[:impuestos] = {
+          total_impuestos_retenidos: impuestos_xml['TotalImpuestosRetenidos'],
+          total_impuestos_trasladados: impuestos_xml['TotalImpuestosTrasladados'],
+          retenciones: [],
+          traslados: []
+        }
+      end
+
       conceptos_xml.each do |concepto_xml|
         concepto = {
           clave_prod_serv: concepto_xml['ClaveProdServ'],
