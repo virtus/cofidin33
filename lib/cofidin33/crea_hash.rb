@@ -62,12 +62,14 @@ module Cofidin33
 
       if invoice_hash[:tipo_de_comprobante] != 'N'
         impuestos_xml = doc.at_css 'cfdi|Comprobante > cfdi|Impuestos'
-        invoice_hash[:impuestos] = {
-          total_impuestos_retenidos: impuestos_xml['TotalImpuestosRetenidos'],
-          total_impuestos_trasladados: impuestos_xml['TotalImpuestosTrasladados'],
-          retenciones: [],
-          traslados: []
-        }
+        unless impuestos_xml.nil?
+          invoice_hash[:impuestos] = {
+            total_impuestos_retenidos: impuestos_xml['TotalImpuestosRetenidos'],
+            total_impuestos_trasladados: impuestos_xml['TotalImpuestosTrasladados'],
+            retenciones: [],
+            traslados: []
+          }
+        end
       end
 
       conceptos_xml.each do |concepto_xml|
