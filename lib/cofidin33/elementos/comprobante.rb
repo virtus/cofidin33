@@ -34,27 +34,46 @@ module Cofidin33
 
     def atributos_sat
       datos = {}
-      datos['xmlns:cfdi'] = 'http://www.sat.gob.mx/cfd/3'
-      datos['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
-      datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
-      datos[:Version] = version
-      datos[:Serie] = serie if serie
-      datos[:Folio] = folio if folio
-      datos[:Fecha] = fecha
-      datos[:Sello] = sello
-      datos[:FormaPago] = forma_pago
-      datos[:NoCertificado] = no_certificado
-      datos[:Certificado] = certificado
-      datos[:CondicionesDePago] = condiciones_de_pago if condiciones_de_pago
-      datos[:SubTotal] = sub_total
-      datos[:Descuento] = descuento if descuento
-      datos[:Moneda] = moneda if moneda
-      datos[:TipoCambio] = tipo_cambio if tipo_cambio
-      datos[:Total] = total
-      datos[:TipoDeComprobante] = tipo_de_comprobante
-      datos[:MetodoPago] = metodo_pago
-      datos[:LugarExpedicion] = lugar_expedicion
-      datos[:Confirmacion] = confirmacion if confirmacion
+      if tipo_de_comprobante != 'P'
+        datos['xmlns:cfdi'] = 'http://www.sat.gob.mx/cfd/3'
+        datos['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
+        datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
+        datos[:Version] = version
+        datos[:Serie] = serie if serie
+        datos[:Folio] = folio if folio
+        datos[:Fecha] = fecha
+        datos[:Sello] = sello
+        datos[:FormaPago] = forma_pago
+        datos[:NoCertificado] = no_certificado
+        datos[:Certificado] = certificado
+        datos[:CondicionesDePago] = condiciones_de_pago if condiciones_de_pago
+        datos[:SubTotal] = sub_total
+        datos[:Descuento] = descuento if descuento
+        datos[:Moneda] = moneda if moneda
+        datos[:TipoCambio] = tipo_cambio if tipo_cambio
+        datos[:Total] = total
+        datos[:TipoDeComprobante] = tipo_de_comprobante
+        datos[:MetodoPago] = metodo_pago
+        datos[:LugarExpedicion] = lugar_expedicion
+        datos[:Confirmacion] = confirmacion if confirmacion
+      else
+        datos['xmlns:cfdi'] = 'http://www.sat.gob.mx/cfd/3'
+        datos['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
+        datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
+        datos[:Version] = version
+        datos[:Serie] = serie if serie
+        datos[:Folio] = folio if folio
+        datos[:Fecha] = fecha
+        datos[:Sello] = sello
+        datos[:NoCertificado] = no_certificado
+        datos[:Certificado] = certificado
+        datos[:SubTotal] = '0'
+        datos[:Moneda] = 'XXX'
+        datos[:Total] = '0'
+        datos[:TipoDeComprobante] = 'P'
+        datos[:LugarExpedicion] = lugar_expedicion
+        datos[:Confirmacion] = confirmacion if confirmacion
+      end
       datos
     end
 
