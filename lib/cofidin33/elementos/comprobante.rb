@@ -23,6 +23,7 @@ module Cofidin33
     attr_accessor :receptor
     attr_accessor :conceptos
     attr_accessor :impuestos
+    attr_accessor :pagos
 
     def initialize
       self.version = '3.3'
@@ -30,6 +31,7 @@ module Cofidin33
       self.receptor = Cofidin33::Receptor.new
       self.conceptos = []
       self.impuestos = Cofidin33::ImpuestosComprobante.new
+      self.pagos = []
     end
 
     def atributos_sat
@@ -59,7 +61,7 @@ module Cofidin33
       else
         datos['xmlns:cfdi'] = 'http://www.sat.gob.mx/cfd/3'
         datos['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
-        datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
+        datos['xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd http://www.sat.gob.mx/Pagos http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos10.xsd'
         datos[:Version] = version
         datos[:Serie] = serie if serie
         datos[:Folio] = folio if folio
