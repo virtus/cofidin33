@@ -49,7 +49,21 @@ module Cofidin33
               end
             end
           end
-          xml.Complemento
+          if comprobante.tipo_de_comprobante != 'P'
+            xml.Complemento
+          else
+            xml.Complemento do
+              xml['pago10'].Pagos('Version' => '1.0', 'xmlns:pago10' => 'http://www.sat.gob.mx/Pagos') do
+                comprobante.pagos.each do |pago|
+                  xml.Pago(pago.atributos_sat) do
+                    pago.documentos_relacionados.each do |doc|
+                      xml.DoctoRelacionado(doc.atributos_sat)
+                    end
+                  end
+                end
+              end
+            end
+          end
         end
       end
 
