@@ -9,6 +9,8 @@ require "cofidin33/elementos/impuestos_comprobante"
 require "cofidin33/elementos/receptor"
 require "cofidin33/elementos/retencion_comprobante"
 require "cofidin33/elementos/traslado_comprobante"
+require "cofidin33/elementos/pago"
+require "cofidin33/elementos/pago_doc_relacionado"
 
 require "cofidin33/crea_comprobante"
 require "cofidin33/genera_xml"

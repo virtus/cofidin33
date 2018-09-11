@@ -26,6 +26,15 @@ module Cofidin33
       if comprobante.impuestos.traslados.count > 0
         cadenas << comprobante.impuestos.total_impuestos_trasladados
       end
+      if comprobante.tipo_de_comprobante == 'P'
+        cadenas << '1.0'
+        comprobante.pagos.each do |pago|
+          cadenas << pago.cadena_original
+          pago.documentos_relacionados.each do |doc|
+            cadenas << doc.cadena_original
+          end
+        end
+      end
       cadena = cadenas.join '|'
       '||' + cadena + '||'
     end
