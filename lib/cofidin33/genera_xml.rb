@@ -31,23 +31,39 @@ module Cofidin33
               end
             end
           end
-          xml.Impuestos(comprobante.impuestos.atributos_sat) do
-            if comprobante.impuestos.retenciones.length > 0
-              xml.Retenciones do
-                comprobante.impuestos.retenciones.each do |retencion|
-                  xml.Retencion(retencion.atributos_sat)
+          if comprobante.tipo_de_comprobante != 'P'
+            xml.Impuestos(comprobante.impuestos.atributos_sat) do
+              if comprobante.impuestos.retenciones.length > 0
+                xml.Retenciones do
+                  comprobante.impuestos.retenciones.each do |retencion|
+                    xml.Retencion(retencion.atributos_sat)
+                  end
                 end
               end
-            end
-            if comprobante.impuestos.traslados.length > 0
-              xml.Traslados do
-                comprobante.impuestos.traslados.each do |traslado|
-                  xml.Traslado(traslado.atributos_sat)
+              if comprobante.impuestos.traslados.length > 0
+                xml.Traslados do
+                  comprobante.impuestos.traslados.each do |traslado|
+                    xml.Traslado(traslado.atributos_sat)
+                  end
                 end
               end
             end
           end
-          xml.Complemento
+          if comprobante.tipo_de_comprobante != 'P'
+            xml.Complemento
+          else
+            xml.Complemento do
+              xml['pago10'].Pagos('Version' => '1.0', 'xmlns:pago10' => 'http://www.sat.gob.mx/Pagos') do
+                comprobante.pagos.each do |pago|
+                  xml.Pago(pago.atributos_sat) do
+                    pago.documentos_relacionados.each do |doc|
+                      xml.DoctoRelacionado(doc.atributos_sat)
+                    end
+                  end
+                end
+              end
+            end
+          end
         end
       end
 
